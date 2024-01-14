@@ -4,7 +4,7 @@ import date_time_module
 
 # потім зроблю, щоб в налаштуваннях цей шлях можна було б побачити
 def path_to_db():
-    path = 'data/osbb.db'
+    path = 'data/database.db'
     return path
 
 
