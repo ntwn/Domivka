@@ -17,7 +17,8 @@ class Auth:
         self.l_user_name = l_user_name
         self.user_login = user_login
         self.user_password = user_password
-        self.user_confirm_password = my_patches.coalesce(user_confirm_password, " ")
+        self.user_confirm_password = (user_confirm_password or ' ')
+        # self.user_confirm_password = my_patches.coalesce(user_confirm_password, " ")
         self.user_email = user_email
         self.user_role = user_role
         self.user = operation_for_db.SQLiteDB('*',

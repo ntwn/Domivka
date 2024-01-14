@@ -140,11 +140,11 @@ class LoginWindow(QMainWindow):
         else:
             self.user_registration = operation_for_db.SQLiteDB(select_obj='*',
                                                                table_name='users',
-                                                               f_user_name=f'{my_patches.coalesce(self.ui.f_name_input_reg.text(), " ")}',
-                                                               l_user_name=f'{my_patches.coalesce(self.ui.l_name_input_reg.text(), " ")}',
+                                                               f_user_name=f'{(self.ui.f_name_input_reg.text() or " ")}',
+                                                               l_user_name=f'{(self.ui.l_name_input_reg.text() or " ")}',
                                                                user_login=f'{self.ui.login_input_reg.text()}',
                                                                user_password=f'{user.register()}',
-                                                               user_email=f'{my_patches.coalesce(self.ui.email_input_reg.text(), "unknown")}',
+                                                               user_email=f'{(self.ui.email_input_reg.text() or "unknown")}',
                                                                user_role='user')
             self.user_registration.insert_user()
             self.ui.message_label.setStyleSheet('color: rgb(0, 150, 0);')
