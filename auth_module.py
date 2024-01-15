@@ -3,7 +3,6 @@ import hashlib
 # В майбутньому реалізую сповіщення на пошту і увімкну для перевірки
 # import email_validator
 
-import my_patches
 import operation_for_db
 
 
