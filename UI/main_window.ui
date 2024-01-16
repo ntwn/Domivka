@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>950</width>
-    <height>717</height>
+    <width>916</width>
+    <height>729</height>
    </rect>
   </property>
   <property name="font">
@@ -23,8 +23,14 @@
     <normalon>:/icon/icon/Logo.png</normalon>
    </iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <property name="styleSheet">
+    <string notr="true">border-radius: 5px;</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_10">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -40,9 +46,27 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0">
+    <item row="0" column="0" rowspan="2">
      <widget class="QWidget" name="icon_only_widget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="styleSheet">
+       <string notr="true">#icon_only_widget {background-color: #286465;
+		width:50px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;}
+
+#icon_only_widget QPushButton, QLabel {
+		height:50px;
+		border:none;
+	}
+
+#icon_only_widget QPushButton {
+	 background-color:#286465;
+}
+
+#icon_only_widget QPushButton:hover {background-color: rgba( 86, 101, 115, 0.5);}
+</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -59,41 +83,44 @@
         <number>0</number>
        </property>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QLabel" name="logo_label_1">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>50</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QLabel" name="logo_label_1">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding: 5px;
+background-color:#286465;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="spacing">
           <number>0</number>
          </property>
          <item>
           <widget class="QPushButton" name="home_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -118,6 +145,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="dashborad_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -142,6 +172,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="orders_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -166,6 +199,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="products_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -190,6 +226,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="customers_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -247,9 +286,32 @@
       </layout>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="0" column="1" rowspan="2">
      <widget class="QWidget" name="full_menu_widget" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+      <property name="styleSheet">
+       <string notr="true">#full_menu_widget {background-color: #286465;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;}
+
+#full_menu_widget QPushButton {
+		border:none;
+		border-radius: 3px;
+		text-align: left;
+		padding: 8px 0 8px 10px;
+	    background-color:#286465;
+	    color: rgb(200, 200, 200);
+}
+
+#full_menu_widget QPushButton:hover {
+		background-color: rgba(86, 101, 115, 0.5);
+	}
+
+	#full_menu_widget QPushButton:checked {
+		color: #fff;
+		font: 12pt &quot;Gotham Pro&quot;;
+	}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
@@ -268,6 +330,13 @@
              <width>40</width>
              <height>40</height>
             </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#logo_label_2 {
+		padding: 5px;
+		color: #fff;
+		background-color:#286465;
+	}</string>
            </property>
            <property name="text">
             <string/>
@@ -293,6 +362,13 @@
              <strikeout>false</strikeout>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">#logo_label_3 {
+		padding-right: 10px;
+		color: #fff;
+		background-color:#286465;
+	}</string>
+           </property>
            <property name="text">
             <string>Домівка</string>
            </property>
@@ -304,9 +380,15 @@
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <property name="spacing">
           <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
          </property>
          <item>
           <widget class="QPushButton" name="home_btn_2">
@@ -446,6 +528,9 @@
              <bold>false</bold>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string>Користувачі</string>
            </property>
@@ -488,9 +573,13 @@
          <property name="font">
           <font>
            <family>Century Gothic</family>
+           <pointsize>9</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding: 10px;</string>
          </property>
          <property name="text">
           <string>Закрити</string>
@@ -511,8 +600,161 @@
      </widget>
     </item>
     <item row="0" column="2">
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="styleSheet">
+       <string notr="true">#maximized_btn {margin-bottom: 10px;}
+
+#normalize_btn {margin-bottom: 10px;}
+
+#hide_btn {margin-bottom: 10px;}</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="change_btn">
+           <property name="styleSheet">
+            <string notr="true">padding: 5px;
+border: none;
+width: 30px;
+height: 30px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/menu-4-32.ico</normaloff>:/icon/icon/menu-4-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="search_input">
+           <property name="styleSheet">
+            <string notr="true">#search_input {
+		border: none;
+		padding: 5px 10px;
+	}
+
+#search_input:focus {
+		background-color: #70B9FE;
+	}</string>
+           </property>
+           <property name="placeholderText">
+            <string>Search...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="search_btn">
+           <property name="styleSheet">
+            <string notr="true">#search_btn {	border: none;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/search-13-48.ico</normaloff>
+             <normalon>:/icon/icon/search-13-48.ico</normalon>:/icon/icon/search-13-48.ico</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="hide_btn">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string> __ </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="normalize_btn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Wingdings 2</family>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string></string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="maximized_btn">
+           <property name="font">
+            <font>
+             <family>Wingdings 2</family>
+             <pointsize>17</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string></string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="2">
      <widget class="QWidget" name="widget_3" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -529,144 +771,185 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>40</height>
-          </size>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>9</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="change_btn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resource.qrc">
-              <normaloff>:/icon/icon/menu-4-32.ico</normaloff>:/icon/icon/menu-4-32.ico</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>14</width>
-              <height>14</height>
-             </size>
-            </property>
-            <property name="checkable">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>236</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <property name="spacing">
-             <number>10</number>
-            </property>
-            <item>
-             <widget class="QLineEdit" name="search_input">
-              <property name="placeholderText">
-               <string>Search...</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="search_btn">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset resource="resource.qrc">
-                <normaloff>:/icon/icon/search-13-48.ico</normaloff>
-                <normalon>:/icon/icon/search-13-48.ico</normalon>:/icon/icon/search-13-48.ico</iconset>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>236</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="user_btn">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="resource.qrc">
-              <normaloff>:/icon/icon/user-48.ico</normaloff>:/icon/icon/user-48.ico</iconset>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>5</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <family>Century Gothic</family>
-               <pointsize>20</pointsize>
-              </font>
+            <widget class="QWidget" name="widget_2" native="true">
+             <property name="styleSheet">
+              <string notr="true">#widget_2 QPushButton:hover {
+	background-color: #286465;
+	color: #fff;
+	}
+
+#widget_2 QPushButton:active {
+	position:relative;
+	top:1px;
+	}
+
+#widget_2 QPushButton {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#ededed;
+	/* border:1px solid #dcdcdc;*/
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font: 75 12pt &quot;Century Gothic&quot;;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 3px 0px #ffffff;
+}</string>
              </property>
-             <property name="text">
-              <string>Home Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <property name="spacing">
+               <number>6</number>
+              </property>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="open_unit_btn">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Century Gothic</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                  <underline>false</underline>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>ОСББ &quot;Варшавська 15 &quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="new_unit_btn">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Century Gothic</family>
+                  <pointsize>12</pointsize>
+                  <weight>75</weight>
+                  <italic>false</italic>
+                  <bold>true</bold>
+                  <underline>false</underline>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Створити будинок</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
          </widget>
          <widget class="QWidget" name="page_2">
           <layout class="QGridLayout" name="gridLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="dashboard_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -685,8 +968,23 @@
          </widget>
          <widget class="QWidget" name="page_3">
           <layout class="QGridLayout" name="gridLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="orders_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -705,8 +1003,23 @@
          </widget>
          <widget class="QWidget" name="page_4">
           <layout class="QGridLayout" name="gridLayout_5">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="product_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -725,8 +1038,23 @@
          </widget>
          <widget class="QWidget" name="page_5">
           <layout class="QGridLayout" name="gridLayout_6">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="customers_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -734,7 +1062,7 @@
               </font>
              </property>
              <property name="text">
-              <string>Customers Page</string>
+              <string>Customers</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -745,8 +1073,23 @@
          </widget>
          <widget class="QWidget" name="page_6">
           <layout class="QGridLayout" name="gridLayout_7">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
+            <widget class="QLabel" name="search_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -755,26 +1098,6 @@
              </property>
              <property name="text">
               <string>Search Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page_7">
-          <layout class="QGridLayout" name="gridLayout_8">
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_10">
-             <property name="font">
-              <font>
-               <family>Century Gothic</family>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>User Page</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -802,11 +1125,11 @@
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>197</x>
+     <x>256</x>
      <y>23</y>
     </hint>
     <hint type="destinationlabel">
-     <x>50</x>
+     <x>49</x>
      <y>362</y>
     </hint>
    </hints>
@@ -818,8 +1141,8 @@
    <slot>setHidden(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>30</y>
+     <x>229</x>
+     <y>40</y>
     </hint>
     <hint type="destinationlabel">
      <x>173</x>
@@ -851,7 +1174,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>33</x>
-     <y>100</y>
+     <y>120</y>
     </hint>
     <hint type="destinationlabel">
      <x>67</x>
@@ -867,11 +1190,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>33</x>
-     <y>123</y>
+     <y>165</y>
     </hint>
     <hint type="destinationlabel">
-     <x>69</x>
-     <y>125</y>
+     <x>131</x>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
@@ -883,11 +1206,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>24</x>
-     <y>148</y>
+     <y>212</y>
     </hint>
     <hint type="destinationlabel">
-     <x>72</x>
-     <y>148</y>
+     <x>134</x>
+     <y>201</y>
     </hint>
    </hints>
   </connection>
@@ -899,11 +1222,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>33</x>
-     <y>177</y>
+     <y>263</y>
     </hint>
     <hint type="destinationlabel">
-     <x>67</x>
-     <y>172</y>
+     <x>129</x>
+     <y>237</y>
     </hint>
    </hints>
   </connection>
@@ -935,7 +1258,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>26</x>
-     <y>90</y>
+     <y>110</y>
     </hint>
    </hints>
   </connection>
@@ -951,7 +1274,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>39</x>
-     <y>114</y>
+     <y>156</y>
     </hint>
    </hints>
   </connection>
@@ -962,12 +1285,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>162</x>
-     <y>142</y>
+     <x>204</x>
+     <y>201</y>
     </hint>
     <hint type="destinationlabel">
      <x>43</x>
-     <y>144</y>
+     <y>208</y>
     </hint>
    </hints>
   </connection>
@@ -978,12 +1301,12 @@
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>185</x>
-     <y>197</y>
+     <x>204</x>
+     <y>237</y>
     </hint>
     <hint type="destinationlabel">
      <x>39</x>
-     <y>184</y>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -1016,6 +1339,54 @@
     <hint type="destinationlabel">
      <x>47</x>
      <y>601</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>maximized_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMaximized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>872</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>800</x>
+     <y>-7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>normalize_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showNormal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>804</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>703</x>
+     <y>-6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hide_btn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>745</x>
+     <y>28</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>617</x>
+     <y>-12</y>
     </hint>
    </hints>
   </connection>

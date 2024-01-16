@@ -86,7 +86,7 @@ class LoginWindow(QMainWindow):
         # Якщо натиснута кнопка Esc
         if event.key() == QtCore.Qt.Key.Key_Escape:
             self.close()
-        # Якщо натиснута кнопка ENTER (Треба звернути увагу в майбутньому, код кнопки моде відрізнятись)
+        # Якщо натиснута кнопка ENTER (Треба звернути увагу в майбутньому, код кнопки може відрізнятись)
         if event.key() == QtCore.Qt.Key.Key_Enter or event.key() == 16777220:
             if self.ui.login_form.isHidden():
                 self.on_clicked_registration_button()
@@ -163,34 +163,59 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.home_btn_2.setChecked(True)
 
-        # приховування верхньої панелі вікна
+        # прозорість фону та приховування верхньої панелі вікна авторизацій
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # відсілковування кнопок на клавіатурі
+        self.keyPressEvent = self.on_search_key_press_event
+
+        self.ui.maximized_btn.clicked.connect(self.on_maximized_btn_clicked)
+        self.ui.normalize_btn.clicked.connect(self.on_normalize_btn_clicked)
+        self.ui.normalize_btn.hide()
 
     # роблю вікно переміщуваним, бо self.setWindowFlags(QtCore.Qt.FramelessWindowHint) забирає таку можливість
-    def mousePressEvent(self, event):
-        self.oldPosition = event.globalPos()
+    # def mousePressEvent(self, event):
+    #     self.oldPosition = event.globalPos()
+    #
+    # def mouseMoveEvent(self, event):
+    #     delta = QPoint(event.globalPos() - self.oldPosition)
+    #     self.move(self.x() + delta.x(), self.y() + delta.y())
+    #     self.oldPosition = event.globalPos()
 
-    def mouseMoveEvent(self, event):
-        delta = QPoint(event.globalPos() - self.oldPosition)
-        self.move(self.x() + delta.x(), self.y() + delta.y())
-        self.oldPosition = event.globalPos()
+    # обробка кнопок (розгорнути/згорнути)
+    def on_maximized_btn_clicked(self):
+        self.ui.normalize_btn.show()
+        self.ui.maximized_btn.hide()
 
-    # Function for searching
+    def on_normalize_btn_clicked(self):
+        self.ui.normalize_btn.hide()
+        self.ui.maximized_btn.show()
+
+    # Робота з полем пошуку
     def on_search_btn_clicked(self):
         self.ui.stackedWidget.setCurrentIndex(5)
-        search_text = self.ui.search_input.text().strip()
+        search_text = self.ui.search_input.text().strip() or ' '
         if search_text:
-            self.ui.label_9.setText(search_text)
+            self.ui.search_label.setText(search_text)
+        return search_text
 
-    # Function for changing page to user page
-    def on_user_btn_clicked(self):
-        self.ui.stackedWidget.setCurrentIndex(6)
-        cur_user = user_module.User(login=f'{login_window.ui.login_input.text()}')
-        user_form.ui.f_name_output.setText(''.join(cur_user.user_f_name().fetchone()))
-        user_form.ui.l_name_output.setText(''.join(cur_user.user_l_name().fetchone()))
-        user_form.ui.email_output.setText(''.join(cur_user.user_email().fetchone()))
-        user_form.ui.login_label.setText(f'{login_window.ui.login_input.text()}')
-        user_form.show()
+    def on_search_key_press_event(self, event):
+        # Якщо натиснута кнопка ENTER (Треба звернути увагу в майбутньому, код кнопки може відрізнятись)
+        if event.key() == QtCore.Qt.Key.Key_Enter or event.key() == 16777220:
+            if self.ui.search_input.hasFocus():
+                self.ui.stackedWidget.setCurrentIndex(5)
+                self.on_search_btn_clicked()
+
+    # Function for changing page to user pag (відсутня, можливо і не з'виться)
+    # def on_user_btn_clicked(self):
+    #     self.ui.stackedWidget.setCurrentIndex(6)
+    #     cur_user = user_module.User(login=f'{login_window.ui.login_input.text()}')
+    #     user_form.ui.f_name_output.setText(''.join(cur_user.user_f_name().fetchone()))
+    #     user_form.ui.l_name_output.setText(''.join(cur_user.user_l_name().fetchone()))
+    #     user_form.ui.email_output.setText(''.join(cur_user.user_email().fetchone()))
+    #     user_form.ui.login_label.setText(f'{login_window.ui.login_input.text()}')
+    #     user_form.show()
 
     # Change QPushButton Checkable status when stackedWidget index changed
     def on_stackedWidget_currentChanged(self, index):
