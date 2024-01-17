@@ -22,6 +22,27 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#LoginWindow QRadioButton {
+	font: 11pt &quot;Century Gothic&quot;;
+}
+
+#LoginWindow QRadioButton::indicator {
+	background-color: rgb(255, 0, 0);
+	width: 0;
+	height: 0;
+}
+
+#LoginWindow QRadioButton::indicator:checked {
+	width: 3px;
+	height: 3px;
+	font: 13pt &quot;Century Gothic&quot;;
+}
+
+#LoginWindow QRadioButton::hover {
+	font: 75 7pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+  </property>
   <widget class="QLabel" name="background_field">
    <property name="geometry">
     <rect>
@@ -682,6 +703,47 @@ padding-left: 7px</string>
     </property>
    </widget>
   </widget>
+  <widget class="QRadioButton" name="en_radio_btn">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>20</y>
+     <width>44</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>EN</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup</string>
+   </attribute>
+  </widget>
+  <widget class="QRadioButton" name="ua_radio_btn">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>20</y>
+     <width>47</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>UA</string>
+   </property>
+   <attribute name="buttonGroup">
+    <string notr="true">buttonGroup</string>
+   </attribute>
+  </widget>
   <zorder>background_field</zorder>
   <zorder>pic2</zorder>
   <zorder>pic</zorder>
@@ -692,6 +754,10 @@ padding-left: 7px</string>
   <zorder>login_form</zorder>
   <zorder>registration_form</zorder>
   <zorder>closeButton</zorder>
+  <zorder>radioButton</zorder>
+  <zorder>radioButton_2</zorder>
+  <zorder>en_radio_btn</zorder>
+  <zorder>ua_radio_btn</zorder>
  </widget>
  <tabstops>
   <tabstop>login_input</tabstop>
@@ -726,4 +792,7 @@ padding-left: 7px</string>
    </hints>
   </connection>
  </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
 </ui>

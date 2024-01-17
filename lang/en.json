@@ -1,0 +1,28 @@
+{
+  "lang_login_window" : {
+    "program_name": "Domivka",
+    "slogan": "Easy to control the house.",
+    "enter": "Enter",
+    "register": "Register",
+    "login": "Login",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email (not necessarily)",
+    "forgot_login_or_password": "Forgot login or password?",
+    "invalid_login": "Invalid login",
+    "incorrect_login": "Incorrect login",
+    "invalid_password": "Invalid password",
+    "incorrect_password": "Invalid password"
+  },
+  "lang_main_window" : {
+    "main_window" : "Main window",
+    "archives" : "Archives",
+    "results" : "Results",
+    "co-owners" : "Co-owners",
+    "close_program" : "Close",
+    "search" : "Search",
+    "create_house" : "Create house"
+  }
+}

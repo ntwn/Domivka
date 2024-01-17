@@ -1,0 +1,28 @@
+{
+  "lang_login_window" : {
+    "program_name": "Домівка",
+    "slogan": "Керуємо будинком з легкістю.",
+    "enter": "Вхід",
+    "register": "Реєстрація",
+    "login": "Логін користувача",
+    "password": "Пароль користувача",
+    "confirm_password": "Підтвердити пароль",
+    "first_name": "Ім'я",
+    "last_name": "Прізвище",
+    "email": "Email (не обов'язково)",
+    "forgot_login_or_password": "Забули логін чи пароль?",
+    "invalid_login": "Не вірний логін",
+    "incorrect_login": "Некоректний логін",
+    "invalid_password": "Не вірний пароль",
+    "incorrect_password": "Некоректний пароль"
+  },
+  "lang_main_window" : {
+    "main_window" : "Головна",
+    "archives" : "Архів",
+    "results" : "Результати",
+    "co-owners" : "Співвласники",
+    "close_program" : "Закрити",
+    "search" : "Пошук",
+    "create_house" : "Створити будинок"
+  }
+}
