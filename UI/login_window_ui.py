@@ -20,6 +20,7 @@ class Ui_LoginWindow(object):
         font.setFamily("Century Gothic")
         font.setPointSize(12)
         LoginWindow.setFont(font)
+        LoginWindow.setStyleSheet("")
         self.background_field = QtWidgets.QLabel(LoginWindow)
         self.background_field.setGeometry(QtCore.QRect(20, 10, 700, 450))
         self.background_field.setStyleSheet("background-color: rgba(255,255,255,255);\n"
@@ -76,6 +77,7 @@ class Ui_LoginWindow(object):
         font.setWeight(50)
         self.closeButton.setFont(font)
         self.closeButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.closeButton.setFocusPolicy(QtCore.Qt.NoFocus)
         self.closeButton.setStyleSheet("background-color: rgba(255, 255, 255,0);\n"
 "color: rgba(189, 189, 189, 0);")
         self.closeButton.setText("")
@@ -96,32 +98,6 @@ class Ui_LoginWindow(object):
 "border-top-left-radius: 50px;")
         self.pic2.setText("")
         self.pic2.setObjectName("pic2")
-        self.change_on_registration_button = QtWidgets.QPushButton(LoginWindow)
-        self.change_on_registration_button.setGeometry(QtCore.QRect(490, 85, 110, 20))
-        self.change_on_registration_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.change_on_registration_button.setFocusPolicy(QtCore.Qt.ClickFocus)
-        self.change_on_registration_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"font: 12pt \"Century Gothic\";\n"
-"color: rgb(157, 157, 157);\n"
-"border: 0;")
-        self.change_on_registration_button.setObjectName("change_on_registration_button")
-        self.change_on_enter_button = QtWidgets.QPushButton(LoginWindow)
-        self.change_on_enter_button.setGeometry(QtCore.QRect(490, 40, 110, 41))
-        font = QtGui.QFont()
-        font.setFamily("Century Gothic")
-        font.setPointSize(32)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.change_on_enter_button.setFont(font)
-        self.change_on_enter_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.change_on_enter_button.setFocusPolicy(QtCore.Qt.ClickFocus)
-        self.change_on_enter_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-"font: 32pt \"Century Gothic\";\n"
-"color: rgb(0, 0, 0);\n"
-"border: 0;")
-        self.change_on_enter_button.setAutoRepeatDelay(-1)
-        self.change_on_enter_button.setObjectName("change_on_enter_button")
         self.login_form = QtWidgets.QWidget(LoginWindow)
         self.login_form.setGeometry(QtCore.QRect(380, 110, 330, 340))
         self.login_form.setObjectName("login_form")
@@ -322,16 +298,116 @@ class Ui_LoginWindow(object):
 "padding-left: 7px")
         self.email_input_reg.setEchoMode(QtWidgets.QLineEdit.Normal)
         self.email_input_reg.setObjectName("email_input_reg")
+        self.lang = QtWidgets.QWidget(LoginWindow)
+        self.lang.setGeometry(QtCore.QRect(370, 10, 50, 22))
+        self.lang.setStyleSheet("#lang QRadioButton {\n"
+"    font: 10pt \"Century Gothic\";\n"
+"    color: rgba(0, 0, 0, 100)\n"
+"}\n"
+"\n"
+"#lang QRadioButton::indicator {\n"
+"    background-color: rgb(255, 0, 0);\n"
+"    width: 0;\n"
+"    height: 0;\n"
+"}\n"
+"#lang QRadioButton::indicator:checked {\n"
+"\n"
+"}\n"
+"\n"
+"#lang QRadioButton:checked {\n"
+"  color: rgba(0, 0, 0, 255)\n"
+"}\n"
+"\n"
+"")
+        self.lang.setObjectName("lang")
+        self.ua_radio_btn = QtWidgets.QRadioButton(self.lang)
+        self.ua_radio_btn.setGeometry(QtCore.QRect(22, 0, 31, 25))
+        self.ua_radio_btn.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.ua_radio_btn.setChecked(True)
+        self.ua_radio_btn.setObjectName("ua_radio_btn")
+        self.lang_button_group = QtWidgets.QButtonGroup(LoginWindow)
+        self.lang_button_group.setObjectName("lang_button_group")
+        self.lang_button_group.addButton(self.ua_radio_btn)
+        self.en_radio_btn = QtWidgets.QRadioButton(self.lang)
+        self.en_radio_btn.setGeometry(QtCore.QRect(0, 0, 31, 25))
+        self.en_radio_btn.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.en_radio_btn.setStyleSheet("")
+        self.en_radio_btn.setShortcut("")
+        self.en_radio_btn.setObjectName("en_radio_btn")
+        self.lang_button_group.addButton(self.en_radio_btn)
+        self.l = QtWidgets.QLabel(self.lang)
+        self.l.setGeometry(QtCore.QRect(21, 5, 5, 13))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(11)
+        self.l.setFont(font)
+        self.l.setObjectName("l")
+        self.widget_lang_reg = QtWidgets.QWidget(LoginWindow)
+        self.widget_lang_reg.setGeometry(QtCore.QRect(380, 40, 330, 70))
+        self.widget_lang_reg.setStyleSheet("#widget_lang_reg QPushButton {\n"
+"    font: 12pt \"Century Gothic\";\n"
+"    color: rgb(157, 157, 157);\n"
+"    border: 0;\n"
+"}\n"
+"\n"
+"#widget_lang_reg QPushButton:checked {\n"
+"    font: 32pt \"Century Gothic\";\n"
+"    color: rgba(0, 0, 0, 255);\n"
+"}\n"
+"\n"
+"\n"
+"")
+        self.widget_lang_reg.setObjectName("widget_lang_reg")
+        self.change_on_registration_button = QtWidgets.QPushButton(self.widget_lang_reg)
+        self.change_on_registration_button.setGeometry(QtCore.QRect(0, 50, 330, 20))
+        self.change_on_registration_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.change_on_registration_button.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.change_on_registration_button.setStyleSheet("/*\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"font: 12pt \"Century Gothic\";\n"
+"color: rgb(157, 157, 157);\n"
+"border: 0;\n"
+"*/")
+        self.change_on_registration_button.setCheckable(True)
+        self.change_on_registration_button.setObjectName("change_on_registration_button")
+        self.log_reg_button_group = QtWidgets.QButtonGroup(LoginWindow)
+        self.log_reg_button_group.setObjectName("log_reg_button_group")
+        self.log_reg_button_group.addButton(self.change_on_registration_button)
+        self.change_on_enter_button = QtWidgets.QPushButton(self.widget_lang_reg)
+        self.change_on_enter_button.setGeometry(QtCore.QRect(0, 0, 331, 51))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.change_on_enter_button.setFont(font)
+        self.change_on_enter_button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.change_on_enter_button.setFocusPolicy(QtCore.Qt.NoFocus)
+        self.change_on_enter_button.setStyleSheet("/*\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"font: 32pt \"Century Gothic\";\n"
+"color: rgb(0, 0, 0);\n"
+"border: 0;\n"
+"*/\n"
+"\n"
+"#change_on_enter_button {\n"
+"padding: 0;\n"
+"margin:0;}")
+        self.change_on_enter_button.setCheckable(True)
+        self.change_on_enter_button.setChecked(True)
+        self.change_on_enter_button.setObjectName("change_on_enter_button")
+        self.log_reg_button_group.addButton(self.change_on_enter_button)
         self.background_field.raise_()
         self.pic2.raise_()
         self.pic.raise_()
         self.baground_company_name_slogan.raise_()
         self.layoutWidget.raise_()
-        self.change_on_registration_button.raise_()
-        self.change_on_enter_button.raise_()
         self.login_form.raise_()
         self.registration_form.raise_()
         self.closeButton.raise_()
+        self.lang.raise_()
+        self.widget_lang_reg.raise_()
 
         self.retranslateUi(LoginWindow)
         self.closeButton.clicked.connect(LoginWindow.close) # type: ignore
@@ -343,16 +419,14 @@ class Ui_LoginWindow(object):
         LoginWindow.setTabOrder(self.l_name_input_reg, self.login_input_reg)
         LoginWindow.setTabOrder(self.login_input_reg, self.password_input_reg)
         LoginWindow.setTabOrder(self.password_input_reg, self.password_input_reg_confirm)
-        LoginWindow.setTabOrder(self.password_input_reg_confirm, self.registration_button)
-        LoginWindow.setTabOrder(self.registration_button, self.closeButton)
+        LoginWindow.setTabOrder(self.password_input_reg_confirm, self.email_input_reg)
+        LoginWindow.setTabOrder(self.email_input_reg, self.registration_button)
 
     def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate
         LoginWindow.setWindowTitle(_translate("LoginWindow", "Form"))
         self.company_name.setText(_translate("LoginWindow", "Домівка"))
         self.company_slogan.setText(_translate("LoginWindow", "Керуємо будинком з легкістю."))
-        self.change_on_registration_button.setText(_translate("LoginWindow", "РЕЄТРАЦІЯ"))
-        self.change_on_enter_button.setText(_translate("LoginWindow", "ВХІД"))
         self.login_input.setPlaceholderText(_translate("LoginWindow", "Логін користувача"))
         self.password_input.setPlaceholderText(_translate("LoginWindow", "Пароль"))
         self.enter_button.setText(_translate("LoginWindow", "Увійти"))
@@ -365,4 +439,8 @@ class Ui_LoginWindow(object):
         self.registration_button.setText(_translate("LoginWindow", "Зареєструвати"))
         self.email_input_reg.setToolTip(_translate("LoginWindow", "<html><head/><body><p/></body></html>"))
         self.email_input_reg.setPlaceholderText(_translate("LoginWindow", "Email (не обов\'язково)"))
-
+        self.ua_radio_btn.setText(_translate("LoginWindow", "UA"))
+        self.en_radio_btn.setText(_translate("LoginWindow", "EN"))
+        self.l.setText(_translate("LoginWindow", "|"))
+        self.change_on_registration_button.setText(_translate("LoginWindow", "РЕЄТРАЦІЯ"))
+        self.change_on_enter_button.setText(_translate("LoginWindow", "ВХІД"))

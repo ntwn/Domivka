@@ -1,5 +1,8 @@
 import string
 
+import main
+from UI.login_window_ui import Ui_LoginWindow
+
 # не допускає, некоректноє інпута в поле input (ТРЕБА ПОЯСНИТИ ТОЧНІШЕ)
 # певно вона піде під видалення
 
@@ -33,3 +36,12 @@ def password_strange(value: str) -> str:
     if counts == 3:
         return 'Very Good'
     return 'Weak' if counts == 1 else 'Good'
+
+
+def set_lang(lang):
+    if lang == 'EN':
+        main.LoginWindow().ui.change_on_enter_button.setText('Enter')
+        print(main.LoginWindow().ui.change_on_enter_button.text())
+        main.LoginWindow().ui.login_input.setText('Login')
+        print(f'Set {lang}')
+        return lang

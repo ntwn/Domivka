@@ -2,6 +2,8 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5.QtCore import QFile, QTextStream, QPoint
+from time import sleep
+import algor_login_window
 
 from UI.main_window_ui import Ui_MainWindow
 from UI.login_window_ui import Ui_LoginWindow
@@ -31,7 +33,6 @@ class LoginWindow(QMainWindow):
 
         # накладення тіні на панелі авторизації
         self.ui.background_field.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=10, xOffset=0, yOffset=0))
-        # self.ui.pic2.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=0, yOffset=0))
         self.ui.enter_button.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3))
         self.ui.registration_button.setGraphicsEffect(QtWidgets.QGraphicsDropShadowEffect(blurRadius=25, xOffset=3, yOffset=3))
 
@@ -47,40 +48,38 @@ class LoginWindow(QMainWindow):
         self.keyPressEvent = self.on_key_press_event
 
         # обробка кліку на надпис "Реєстрація" та "Вхід"
-        self.ui.change_on_registration_button.clicked.connect(self.on_clicked_change_on_registration_button)
-        self.ui.change_on_enter_button.clicked.connect(self.on_clicked_change_on_enter_button)
+        self.ui.log_reg_button_group.buttonClicked.connect(self.log_reg_form)
 
-    def on_clicked_change_on_registration_button(self):
-        self.ui.change_on_enter_button.setGeometry(QtCore.QRect(490, 85, 110, 20))
-        self.ui.change_on_enter_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-                                                  "font: 12pt \"Century Gothic\";\n"
-                                                  "color: rgb(157, 157, 157);\n"
-                                                  "border: 0;")
-        self.ui.change_on_registration_button.setGeometry(QtCore.QRect(435, 40, 220, 40))
-        self.ui.change_on_registration_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-                                                  "font: 32pt \"Century Gothic\";\n"
-                                                  "color: rgb(0, 0, 0);\n"
-                                                  "border: 0;")
+        # Вибір мови
+        self.ui.lang_button_group.buttonClicked.connect(self.change_lang)
 
+    def open_reg_form(self):
+        self.ui.change_on_registration_button.setGeometry(QtCore.QRect(0, 0, 331, 51))
+        self.ui.change_on_enter_button.setGeometry(QtCore.QRect(0, 50, 331, 20))
         self.ui.registration_form.show()
         self.ui.login_form.hide()
         self.ui.message_label.hide()
 
-    def on_clicked_change_on_enter_button(self):
-        self.ui.change_on_registration_button.setGeometry(QtCore.QRect(490, 85, 110, 20))
-        self.ui.change_on_registration_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-                                                  "font: 12pt \"Century Gothic\";\n"
-                                                  "color: rgb(157, 157, 157);\n"
-                                                  "border: 0;")
-        self.ui.change_on_enter_button.setGeometry(QtCore.QRect(435, 40, 220, 40))
-        self.ui.change_on_enter_button.setStyleSheet("background-color: rgba(255, 255, 255, 0);\n"
-                                                  "font: 32pt \"Century Gothic\";\n"
-                                                  "color: rgb(0, 0, 0);\n"
-                                                  "border: 0;")
-
+    def open_login_form(self):
+        self.ui.change_on_enter_button.setGeometry(QtCore.QRect(0, 0, 331, 51))
+        self.ui.change_on_registration_button.setGeometry(QtCore.QRect(0, 50, 331, 20))
         self.ui.login_form.show()
         self.ui.registration_form.hide()
         self.ui.message_label_reg.hide()
+
+    def log_reg_form(self):
+        radio_btn = self.sender()
+        if radio_btn.checkedButton().text() in ('ВХІД', 'ENTER'):
+            self.open_login_form()
+        else:
+            self.open_reg_form()
+
+    def change_lang(self):
+        radio_btn = self.sender()
+        if radio_btn.checkedButton().text() == 'EN':
+            self.ui.login_input.setPlaceholderText('Login')
+        else:
+            self.ui.login_input.setPlaceholderText('Логін користувача')
 
     def on_key_press_event(self, event):
         # Якщо натиснута кнопка Esc
@@ -104,11 +103,8 @@ class LoginWindow(QMainWindow):
         elif user.login() == 'password_not_valid':
             self.ui.message_label.setText('Не вірний пароль')
         else:
-
             login_window.close()
-            # if 'root' in user.login():
-            #     print(f'root access required')
-            #     main_window.show()
+            sleep(0.5)
             main_window.show()
             return True
 
@@ -149,7 +145,8 @@ class LoginWindow(QMainWindow):
             self.user_registration.insert_user()
             self.ui.message_label.setStyleSheet('color: rgb(0, 150, 0);')
             self.ui.message_label.setText('Реєстрація успішна! Авторизуйтесь')
-            self.on_clicked_change_on_enter_button()
+            self.ui.change_on_enter_button.setChecked(True)
+            self.open_login_form()
 
 
 class MainWindow(QMainWindow):
@@ -328,33 +325,13 @@ class DeleteUserForm(QtWidgets.QDialog):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     wid = QtWidgets.QApplication(sys.argv)
-    # loading style file
-    # with open("style.qss", "r") as style_file:
-    #     style_str = style_file.read()
-    # app.setStyleSheet(style_str)
-
-    # Для логін_вікна стилі в файлі login_window_ui
-    # Login_form = QtWidgets.QWidget()
-    # ui_login = Ui_LoginWindow()
-    # ui_login.setupUi(Login_form)
-
-    # loading style file, Example 2 (для менй вікна стилі в окремому файлі)
-    style_file = QFile("UI/style.qss")
-    style_file.open(QFile.ReadOnly | QFile.Text)
-    style_stream = QTextStream(style_file)
-    app.setStyleSheet(style_stream.readAll())
 
     main_window = MainWindow()
+
     login_window = LoginWindow()
     login_window.show()
-    # main_window.show()
-    # if login_window.on_clicked_enter_button():
+
     user_form = UserForm()
     delete_user_form = DeleteUserForm()
-    # delete_user_form.show()
-        # user_form.show()
-    # user_form = UserForm()
-    # main_window.show()
-    # user_form.show()
 
     sys.exit(app.exec_())
