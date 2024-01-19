@@ -74,12 +74,43 @@ class LoginWindow(QMainWindow):
         else:
             self.open_reg_form()
 
+    # Зміна мови, це ппц який костиляка, треба розібратися і зробити гарно
     def change_lang(self):
         radio_btn = self.sender()
         if radio_btn.checkedButton().text() == 'EN':
-            self.ui.login_input.setPlaceholderText('Login')
+            self.ui.company_name.setText("Domivka")
+            self.ui.company_slogan.setText("Easy to control the house.")
+            self.ui.login_input.setPlaceholderText("Login")
+            self.ui.password_input.setPlaceholderText("Password")
+            self.ui.enter_button.setText("Enter")
+            self.ui.forgot_login_password.setText("Forgot login or password?")
+            self.ui.password_input_reg_confirm.setPlaceholderText("Confirm password")
+            self.ui.l_name_input_reg.setPlaceholderText("Last name")
+            self.ui.login_input_reg.setPlaceholderText("Login")
+            self.ui.password_input_reg.setPlaceholderText("Password")
+            self.ui.f_name_input_reg.setPlaceholderText("First name")
+            self.ui.registration_button.setText("Registration")
+            self.ui.email_input_reg.setToolTip("<html><head/><body><p/></body></html>")
+            self.ui.email_input_reg.setPlaceholderText("Email (not necessarily)")
+            self.ui.change_on_registration_button.setText("REGISTRATION")
+            self.ui.change_on_enter_button.setText("ENTER")
         else:
-            self.ui.login_input.setPlaceholderText('Логін користувача')
+            self.ui.company_name.setText("Домівка")
+            self.ui.company_slogan.setText("Керуємо будинком з легкістю.")
+            self.ui.login_input.setPlaceholderText("Логін користувача")
+            self.ui.password_input.setPlaceholderText("Пароль користувача")
+            self.ui.enter_button.setText("Увійти")
+            self.ui.forgot_login_password.setText("Забули логін чи пароль?")
+            self.ui.password_input_reg_confirm.setPlaceholderText("Підтвердити пароль")
+            self.ui.l_name_input_reg.setPlaceholderText("Прізвище")
+            self.ui.login_input_reg.setPlaceholderText("Логін користувача")
+            self.ui.password_input_reg.setPlaceholderText("Пароль")
+            self.ui.f_name_input_reg.setPlaceholderText("Ім\'я")
+            self.ui.registration_button.setText("Зареєструвати")
+            self.ui.email_input_reg.setToolTip("<html><head/><body><p/></body></html>")
+            self.ui.email_input_reg.setPlaceholderText("Email (не обов\'язково)")
+            self.ui.change_on_registration_button.setText("РЕЄТРАЦІЯ")
+            self.ui.change_on_enter_button.setText("ВХІД")
 
     def on_key_press_event(self, event):
         # Якщо натиснута кнопка Esc
@@ -172,13 +203,13 @@ class MainWindow(QMainWindow):
         self.ui.normalize_btn.hide()
 
     # роблю вікно переміщуваним, бо self.setWindowFlags(QtCore.Qt.FramelessWindowHint) забирає таку можливість
-    # def mousePressEvent(self, event):
-    #     self.oldPosition = event.globalPos()
-    #
-    # def mouseMoveEvent(self, event):
-    #     delta = QPoint(event.globalPos() - self.oldPosition)
-    #     self.move(self.x() + delta.x(), self.y() + delta.y())
-    #     self.oldPosition = event.globalPos()
+    def mousePressEvent(self, event):
+        self.oldPosition = event.globalPos()
+
+    def mouseMoveEvent(self, event):
+        delta = QPoint(event.globalPos() - self.oldPosition)
+        self.move(self.x() + delta.x(), self.y() + delta.y())
+        self.oldPosition = event.globalPos()
 
     # обробка кнопок (розгорнути/згорнути)
     def on_maximized_btn_clicked(self):
@@ -333,5 +364,6 @@ if __name__ == "__main__":
 
     user_form = UserForm()
     delete_user_form = DeleteUserForm()
+
 
     sys.exit(app.exec_())

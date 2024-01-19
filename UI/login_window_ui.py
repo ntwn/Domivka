@@ -20,6 +20,9 @@ class Ui_LoginWindow(object):
         font.setFamily("Century Gothic")
         font.setPointSize(12)
         LoginWindow.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icon/icon/Logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+        LoginWindow.setWindowIcon(icon)
         LoginWindow.setStyleSheet("")
         self.background_field = QtWidgets.QLabel(LoginWindow)
         self.background_field.setGeometry(QtCore.QRect(20, 10, 700, 450))
@@ -81,9 +84,9 @@ class Ui_LoginWindow(object):
         self.closeButton.setStyleSheet("background-color: rgba(255, 255, 255,0);\n"
 "color: rgba(189, 189, 189, 0);")
         self.closeButton.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/icon/close-window-64.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.closeButton.setIcon(icon)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/icon/icon/close-window-64.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.closeButton.setIcon(icon1)
         self.closeButton.setIconSize(QtCore.QSize(16, 16))
         self.closeButton.setObjectName("closeButton")
         self.pic = QtWidgets.QLabel(LoginWindow)
@@ -444,3 +447,4 @@ class Ui_LoginWindow(object):
         self.l.setText(_translate("LoginWindow", "|"))
         self.change_on_registration_button.setText(_translate("LoginWindow", "РЕЄТРАЦІЯ"))
         self.change_on_enter_button.setText(_translate("LoginWindow", "ВХІД"))
+

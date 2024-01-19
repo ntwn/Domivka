@@ -22,6 +22,11 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/icon/icon/Logo.png</normalon>
+   </iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
