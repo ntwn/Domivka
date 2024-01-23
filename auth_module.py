@@ -1,5 +1,4 @@
 import hashlib
-
 # В майбутньому реалізую сповіщення на пошту і увімкну для перевірки
 # import email_validator
 
@@ -56,7 +55,7 @@ class Auth:
         #     return 'email_not_valid'
 
         else:
-            return self.hash_password()
+            return self.user_password
             # self.user_registration = operation_for_db.SQLiteDB('*',
             #                                   'users',
             #                                   f'{self.f_user_name}',
@@ -71,10 +70,11 @@ class Auth:
     def login(self):
         self.user.select()
         self.user_data = self.user.fetchone()
+        print(self.user_data)
         # Перевіряємо, чи існує користувач з таким ім'ям
         if not self.user_data:
             return 'user_not_found'
-        elif not self.hash_password() in self.user_data:
+        elif not self.user_password in self.user_data:
             return 'password_not_valid'
         else:
             return self.user_data

@@ -1,4 +1,5 @@
 import string
+import hashlib
 
 import main
 from UI.login_window_ui import Ui_LoginWindow
@@ -45,3 +46,11 @@ def set_lang(lang):
         main.LoginWindow().ui.login_input.setText('Login')
         print(f'Set {lang}')
         return lang
+
+
+# хеширує пароль і повертає хеш-суму
+def hash_password(user_password):
+    hash_pass_object = hashlib.md5()
+    hash_pass_object.update(user_password.encode('utf-8'))
+    hash_pass_digest = hash_pass_object.hexdigest()
+    return hash_pass_digest

@@ -126,8 +126,9 @@ class LoginWindow(QMainWindow):
     def on_clicked_enter_button(self):
         self.ui.message_label.show()
         self.ui.message_label.setText('')
+        print(my_patches.hash_password(f'{self.ui.password_input.text()}'))
         user = auth_mod.Auth(user_login=f'{self.ui.login_input.text()}',
-                             user_password=f'{self.ui.password_input.text()}')
+                             user_password=my_patches.hash_password(f'{self.ui.password_input.text()}'))
         self.ui.message_label.setStyleSheet('color: rgb(230, 0, 0);')
         if user.login() == 'user_not_found':
             self.ui.message_label.setText('Не вірний логін')
@@ -145,15 +146,15 @@ class LoginWindow(QMainWindow):
         user = auth_mod.Auth(f_user_name=f'{self.ui.f_name_input_reg.text()}',
                              l_user_name=f'{self.ui.l_name_input_reg.text()}',
                              user_login=f'{self.ui.login_input_reg.text()}',
-                             user_password=f'{self.ui.password_input_reg.text()}',
-                             user_confirm_password=f'{self.ui.password_input_reg_confirm.text()}',
+                             user_password=my_patches.hash_password(f'{self.ui.password_input_reg.text()}'),
+                             user_confirm_password=my_patches.hash_password(f'{self.ui.password_input_reg_confirm.text()}'),
                              user_email=f'{self.ui.email_input_reg.text()}')
-        if user.register() == 'chip_login':
+        if len(self.ui.password_input_reg.text()) < 5:
+            self.ui.message_label_reg.setText('Пароль занадто короткий')
+        elif user.register() == 'chip_login':
             self.ui.message_label_reg.setText('Логін занадто короткий')
         elif user.register() == 'login_exists':
             self.ui.message_label_reg.setText('Такий користувач вже існує')
-        elif user.register() == 'chip_password':
-            self.ui.message_label_reg.setText('Пароль занадто короткий')
         elif user.register() == 'wrong_confirm_password':
             self.ui.message_label_reg.setText('Не вірний пароль підтвердження')
 
@@ -176,6 +177,7 @@ class LoginWindow(QMainWindow):
             self.user_registration.insert_user()
             self.ui.message_label.setStyleSheet('color: rgb(0, 150, 0);')
             self.ui.message_label.setText('Реєстрація успішна! Авторизуйтесь')
+            self.ui.message_label.show()
             self.ui.change_on_enter_button.setChecked(True)
             self.open_login_form()
 
