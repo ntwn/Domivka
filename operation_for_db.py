@@ -19,8 +19,8 @@ class SQLiteDB:
         self.table_name = table_name
         self.f_user_name = f_user_name
         self.l_user_name = l_user_name
-        self.user_login = user_login
-        self.user_password = user_password
+        self.__user_login = user_login
+        self.__user_password = user_password
         self.user_email = user_email
         self.user_role = user_role
 
@@ -42,7 +42,7 @@ class SQLiteDB:
     def select(self):
         query = (f'SELECT {self.select_obj} '
                  f'FROM {self.table_name} '
-                 f'WHERE user_login = "{self.user_login}"')
+                 f'WHERE user_login = "{self.__user_login}"')
         self.execute(query)
         return self
 
@@ -50,19 +50,25 @@ class SQLiteDB:
         query = (f'INSERT INTO users '
                  f'(f_user_name, l_user_name, user_login, user_password, user_email, user_role, create_data) '
                  f'VALUES '
-                 f'("{self.f_user_name}", "{self.l_user_name}", "{self.user_login}", "{self.user_password}", "{self.user_email}", "{self.user_role}", {date_time_module.date_time_to_unix()})')
+                 f'("{self.f_user_name}",'
+                 f' "{self.l_user_name}",'
+                 f' "{self.__user_login}",'
+                 f' "{self.__user_password}",'
+                 f' "{self.user_email}",'
+                 f' "{self.user_role}",'
+                 f' {date_time_module.date_time_to_unix()})')
         self.execute(query)
         self.commit()
 
     def update(self, column, new_value):
         query = (f'UPDATE {self.table_name} '
                  f'SET {column} = {new_value} '
-                 f'WHERE user_login = "{self.user_login}"')
+                 f'WHERE user_login = "{self.__user_login}"')
         self.execute(query)
         self.commit()
 
     def delete(self):
         query = (f'DELETE FROM {self.table_name} '
-                 f'WHERE user_login = "{self.user_login}"')
+                 f'WHERE user_login = "{self.__user_login}"')
         self.execute(query)
         self.commit()

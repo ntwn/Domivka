@@ -7,7 +7,6 @@ from my_patches import hash_password
 import operation_for_db
 import auth_module as auth_mod
 import algor_main_window
-import main
 
 
 class LoginWindow(QMainWindow):
@@ -118,7 +117,6 @@ class LoginWindow(QMainWindow):
     def on_clicked_enter_button(self):
         self.ui.message_label.show()
         self.ui.message_label.setText('')
-        print(hash_password(f'{self.ui.password_input.text()}'))
         user = auth_mod.Auth(user_login=f'{self.ui.login_input.text()}',
                              user_password=hash_password(f'{self.ui.password_input.text()}'))
         self.ui.message_label.setStyleSheet('color: rgb(230, 0, 0);')
@@ -127,12 +125,10 @@ class LoginWindow(QMainWindow):
         elif user.login() == 'password_not_valid':
             self.ui.message_label.setText('Не вірний пароль')
         else:
-            # global login_window
-            main.login_window.close()
+            self.close()
             sleep(0.5)
-            # global main_window
-            self.main_window = algor_main_window.MainWindow()
-            self.main_window.show()
+            main_window = algor_main_window.MainWindow()
+            main_window.show()
             return True
 
     def on_clicked_registration_button(self):
