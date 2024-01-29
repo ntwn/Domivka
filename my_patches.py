@@ -1,7 +1,7 @@
 import string
 import hashlib
 
-import main
+# import main
 from UI.login_window_ui import Ui_LoginWindow
 
 # не допускає, некоректноє інпута в поле input (ТРЕБА ПОЯСНИТИ ТОЧНІШЕ)
@@ -39,13 +39,13 @@ def password_strange(value: str) -> str:
     return 'Weak' if counts == 1 else 'Good'
 
 
-def set_lang(lang):
-    if lang == 'EN':
-        main.LoginWindow().ui.change_on_enter_button.setText('Enter')
-        print(main.LoginWindow().ui.change_on_enter_button.text())
-        main.LoginWindow().ui.login_input.setText('Login')
-        print(f'Set {lang}')
-        return lang
+# def set_lang(lang):
+#     if lang == 'EN':
+#         main.LoginWindow().ui.change_on_enter_button.setText('Enter')
+#         print(main.LoginWindow().ui.change_on_enter_button.text())
+#         main.LoginWindow().ui.login_input.setText('Login')
+#         print(f'Set {lang}')
+#         return lang
 
 
 # хеширує пароль і повертає хеш-суму
