@@ -29,10 +29,8 @@ class LoginWindow(QMainWindow):
 
         self.ui.registration_form.hide()
 
-        # обробка кліку на кнопку "Увійти"
+        # обробка кліку на кнопку
         self.ui.enter_button.clicked.connect(self.on_clicked_enter_button)
-
-        # обробка кліку на кнопку "Зареєструватись"
         self.ui.registration_button.clicked.connect(self.on_clicked_registration_button)
 
         # відсілковування кнопок на клавіатурі

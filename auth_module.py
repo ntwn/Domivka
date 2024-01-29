@@ -1,4 +1,3 @@
-import hashlib
 # В майбутньому реалізую сповіщення на пошту і увімкну для перевірки
 # import email_validator
 
@@ -26,13 +25,6 @@ class Auth:
                                               f'{self.user_password}',
                                               f'{self.user_email}',
                                               f'{self.user_role}')
-
-    # хеширує пароль і повертає хеш
-    def hash_password(self):
-        self.hash_pass_object = hashlib.md5()
-        self.hash_pass_object.update(self.user_password.encode('utf-8'))
-        self.hash_pass_digest = self.hash_pass_object.hexdigest()
-        return self.hash_pass_digest
 
     def register(self):
         self.user.select()
@@ -70,11 +62,10 @@ class Auth:
     def login(self):
         self.user.select()
         self.user_data = self.user.fetchone()
-        print(self.user_data)
         # Перевіряємо, чи існує користувач з таким ім'ям
         if not self.user_data:
             return 'user_not_found'
-        elif not self.user_password in self.user_data:
+        elif self.user_password not in self.user_data:
             return 'password_not_valid'
         else:
             return self.user_data

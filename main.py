@@ -2,19 +2,13 @@ import sys
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5.QtCore import QFile, QTextStream, QPoint
-# from time import sleep
+
 import algor_login_window
 import algor_main_window
 
-# from UI.main_window_ui import Ui_MainWindow
-# from UI.login_window_ui import Ui_LoginWindow
 from UI.user_form_ui import Ui_UserForm
 from UI.delete_user_form_ui import Ui_DeleteUserForm
 
-import operation_for_db
-import auth_module as auth_mod
-import my_patches
-import user_module
 import UI.resource_rc
 
 
