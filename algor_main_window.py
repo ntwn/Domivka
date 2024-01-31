@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
 
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
-        self.ui.home_btn_2.setChecked(True)
+        self.ui.main_btn_2.setChecked(True)
 
         # прозорість фону та приховування верхньої панелі вікна авторизацій
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -29,6 +29,11 @@ class MainWindow(QMainWindow):
         self.ui.maximized_btn.clicked.connect(self.on_maximized_btn_clicked)
         self.ui.normalize_btn.clicked.connect(self.on_normalize_btn_clicked)
         self.ui.normalize_btn.hide()
+        self.initial_state()
+
+        self.ui.back_button_results.clicked.connect(self.initial_state)
+        self.ui.open_unit_btn.clicked.connect(self.on_open_unit_btn)
+
 
     # роблю вікно переміщуваним, бо self.setWindowFlags(QtCore.Qt.FramelessWindowHint) забирає таку можливість
     def mousePressEvent(self, event):
@@ -47,6 +52,29 @@ class MainWindow(QMainWindow):
     def on_normalize_btn_clicked(self):
         self.ui.normalize_btn.hide()
         self.ui.maximized_btn.show()
+
+
+    def initial_state(self):
+        self.ui.stackedWidget.setCurrentIndex(0)
+        self.ui.main_btn_2.setChecked(True)
+        self.ui.results_btn_1.hide()
+        self.ui.results_btn_2.hide()
+        self.ui.archive_btn_1.hide()
+        self.ui.archive_btn_2.hide()
+        self.ui.co_owners_btn_1.hide()
+        self.ui.co_owners_btn_2.hide()
+        self.ui.counters_btn_1.hide()
+        self.ui.counters_btn_2.hide()
+
+    def on_open_unit_btn(self):
+        self.ui.results_btn_1.show()
+        self.ui.results_btn_2.show()
+        self.ui.archive_btn_1.show()
+        self.ui.archive_btn_2.show()
+        self.ui.co_owners_btn_1.show()
+        self.ui.co_owners_btn_2.show()
+        self.ui.counters_btn_1.show()
+        self.ui.counters_btn_2.show()
 
     # Робота з полем пошуку
     def on_search_btn_clicked(self):
@@ -86,32 +114,32 @@ class MainWindow(QMainWindow):
                 btn.setAutoExclusive(True)
 
     # functions for changing menu page
-    def on_home_btn_1_toggled(self):
+    def on_main_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
 
-    def on_home_btn_2_toggled(self):
+    def on_main_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
 
-    def on_dashborad_btn_1_toggled(self):
+    def on_results_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
 
-    def on_dashborad_btn_2_toggled(self):
+    def on_results_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(1)
 
-    def on_orders_btn_1_toggled(self):
+    def on_archive_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
 
-    def on_orders_btn_2_toggled(self):
+    def on_archive_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(2)
 
-    def on_products_btn_1_toggled(self):
+    def on_co_owners_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(3)
 
-    def on_products_btn_2_toggled(self):
+    def on_co_owners_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(3)
 
-    def on_customers_btn_1_toggled(self):
+    def on_counters_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(4)
 
-    def on_customers_btn_2_toggled(self):
+    def on_counters_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(4)

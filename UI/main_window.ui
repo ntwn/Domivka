@@ -46,246 +46,6 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0" rowspan="2">
-     <widget class="QWidget" name="icon_only_widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">#icon_only_widget {background-color: #286465;
-		width:50px;
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;}
-
-#icon_only_widget QPushButton, QLabel {
-		height:50px;
-		border:none;
-	}
-
-#icon_only_widget QPushButton {
-	 background-color:#286465;
-}
-
-#icon_only_widget QPushButton:hover {background-color: rgba( 86, 101, 115, 0.5);}
-</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="logo_label_1">
-         <property name="minimumSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">padding: 5px;
-background-color:#286465;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="home_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="dashborad_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
-             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="orders_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
-             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="products_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/product-32.ico</normaloff>
-             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="customers_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/group-32.ico</normaloff>
-             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>375</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="exit_btn_1">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="resource.qrc">
-           <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="0" column="1" rowspan="2">
      <widget class="QWidget" name="full_menu_widget" native="true">
       <property name="styleSheet">
@@ -391,7 +151,7 @@ background-color:#286465;</string>
           <number>6</number>
          </property>
          <item>
-          <widget class="QPushButton" name="home_btn_2">
+          <widget class="QPushButton" name="main_btn_2">
            <property name="font">
             <font>
              <family>Century Gothic</family>
@@ -423,7 +183,7 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="dashborad_btn_2">
+          <widget class="QPushButton" name="results_btn_2">
            <property name="font">
             <font>
              <family>Century Gothic</family>
@@ -434,38 +194,6 @@ background-color:#286465;</string>
            </property>
            <property name="text">
             <string>Результати</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
-             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="orders_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Архів</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -487,7 +215,7 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="products_btn_2">
+          <widget class="QPushButton" name="archive_btn_2">
            <property name="font">
             <font>
              <family>Century Gothic</family>
@@ -497,7 +225,7 @@ background-color:#286465;</string>
             </font>
            </property>
            <property name="text">
-            <string>Products</string>
+            <string>Архів</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -519,7 +247,39 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="customers_btn_2">
+          <widget class="QPushButton" name="co_owners_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Співвласники</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/group-32.ico</normaloff>
+             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="counters_btn_2">
            <property name="font">
             <font>
              <family>Century Gothic</family>
@@ -532,12 +292,12 @@ background-color:#286465;</string>
             <string notr="true"/>
            </property>
            <property name="text">
-            <string>Користувачі</string>
+            <string>Лічильники</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/group-32.ico</normaloff>
-             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
+             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -773,7 +533,7 @@ height: 30px;</string>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -948,20 +708,72 @@ height: 30px;</string>
            <property name="spacing">
             <number>0</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="dashboard_label">
-             <property name="font">
-              <font>
-               <family>Century Gothic</family>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Dashboard Page</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
+           <item row="1" column="0">
+            <widget class="QWidget" name="widget_5" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLabel" name="results_label">
+                <property name="font">
+                 <font>
+                  <family>Century Gothic</family>
+                  <pointsize>20</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Результати</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QTableView" name="tableView"/>
+              </item>
+              <item>
+               <widget class="QWidget" name="widget" native="true">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_8">
+                 <item row="0" column="0">
+                  <widget class="QPushButton" name="back_button_results">
+                   <property name="minimumSize">
+                    <size>
+                     <width>100</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Century Gothic</family>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Закрити будинок</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" rowspan="2">
+                  <spacer name="horizontalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>556</width>
+                     <height>29</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>
@@ -984,7 +796,7 @@ height: 30px;</string>
             <number>0</number>
            </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="orders_label">
+            <widget class="QLabel" name="archive_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -992,7 +804,7 @@ height: 30px;</string>
               </font>
              </property>
              <property name="text">
-              <string>Orders Page</string>
+              <string>Архів</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1019,7 +831,7 @@ height: 30px;</string>
             <number>0</number>
            </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="product_label">
+            <widget class="QLabel" name="co_owners_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -1027,7 +839,7 @@ height: 30px;</string>
               </font>
              </property>
              <property name="text">
-              <string>Product Page</string>
+              <string>Співвласники</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1054,7 +866,7 @@ height: 30px;</string>
             <number>0</number>
            </property>
            <item row="0" column="0">
-            <widget class="QLabel" name="customers_label">
+            <widget class="QLabel" name="counters_label">
              <property name="font">
               <font>
                <family>Century Gothic</family>
@@ -1062,7 +874,7 @@ height: 30px;</string>
               </font>
              </property>
              <property name="text">
-              <string>Customers</string>
+              <string>Лічильники</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1111,6 +923,246 @@ height: 30px;</string>
       </layout>
      </widget>
     </item>
+    <item row="0" column="0" rowspan="2">
+     <widget class="QWidget" name="icon_only_widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">#icon_only_widget {background-color: #286465;
+		width:50px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;}
+
+#icon_only_widget QPushButton, QLabel {
+		height:50px;
+		border:none;
+	}
+
+#icon_only_widget QPushButton {
+	 background-color:#286465;
+}
+
+#icon_only_widget QPushButton:hover {background-color: rgba( 86, 101, 115, 0.5);}
+</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="logo_label_1">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding: 5px;
+background-color:#286465;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="main_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
+             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="results_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/activity-feed-32.ico</normaloff>
+             <normalon>:/icon/icon/activity-feed-48.ico</normalon>:/icon/icon/activity-feed-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="archive_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/product-32.ico</normaloff>
+             <normalon>:/icon/icon/product-48.ico</normalon>:/icon/icon/product-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="co_owners_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/group-32.ico</normaloff>
+             <normalon>:/icon/icon/group-48.ico</normalon>:/icon/icon/group-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="counters_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/dashboard-5-32.ico</normaloff>
+             <normalon>:/icon/icon/dashboard-5-48.ico</normalon>:/icon/icon/dashboard-5-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>375</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="exit_btn_1">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="resource.qrc">
+           <normaloff>:/icon/icon/close-window-64.ico</normaloff>:/icon/icon/close-window-64.ico</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
@@ -1151,9 +1203,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>home_btn_1</sender>
+   <sender>main_btn_1</sender>
    <signal>toggled(bool)</signal>
-   <receiver>home_btn_2</receiver>
+   <receiver>main_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1167,9 +1219,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>dashborad_btn_1</sender>
+   <sender>results_btn_1</sender>
    <signal>toggled(bool)</signal>
-   <receiver>dashborad_btn_2</receiver>
+   <receiver>results_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1183,9 +1235,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>orders_btn_1</sender>
+   <sender>archive_btn_1</sender>
    <signal>toggled(bool)</signal>
-   <receiver>orders_btn_2</receiver>
+   <receiver>archive_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1199,9 +1251,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>products_btn_1</sender>
+   <sender>co_owners_btn_1</sender>
    <signal>toggled(bool)</signal>
-   <receiver>products_btn_2</receiver>
+   <receiver>co_owners_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1215,9 +1267,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>customers_btn_1</sender>
+   <sender>counters_btn_1</sender>
    <signal>toggled(bool)</signal>
-   <receiver>customers_btn_2</receiver>
+   <receiver>counters_btn_2</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1231,9 +1283,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>home_btn_2</sender>
+   <sender>main_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>home_btn_1</receiver>
+   <receiver>main_btn_1</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1247,9 +1299,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>dashborad_btn_2</sender>
+   <sender>results_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>dashborad_btn_1</receiver>
+   <receiver>results_btn_1</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1263,9 +1315,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>orders_btn_2</sender>
+   <sender>archive_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>orders_btn_1</receiver>
+   <receiver>archive_btn_1</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1279,9 +1331,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>products_btn_2</sender>
+   <sender>co_owners_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>products_btn_1</receiver>
+   <receiver>co_owners_btn_1</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -1295,9 +1347,9 @@ height: 30px;</string>
    </hints>
   </connection>
   <connection>
-   <sender>customers_btn_2</sender>
+   <sender>counters_btn_2</sender>
    <signal>toggled(bool)</signal>
-   <receiver>customers_btn_1</receiver>
+   <receiver>counters_btn_1</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">

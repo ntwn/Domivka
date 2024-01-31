@@ -427,7 +427,7 @@ class Ui_LoginWindow(object):
 
     def retranslateUi(self, LoginWindow):
         _translate = QtCore.QCoreApplication.translate
-        LoginWindow.setWindowTitle(_translate("LoginWindow", "Form"))
+        LoginWindow.setWindowTitle(_translate("LoginWindow", "Домівка"))
         self.company_name.setText(_translate("LoginWindow", "Домівка"))
         self.company_slogan.setText(_translate("LoginWindow", "Керуємо будинком з легкістю."))
         self.login_input.setPlaceholderText(_translate("LoginWindow", "Логін користувача"))

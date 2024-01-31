@@ -17,17 +17,15 @@ class Auth:
         self.user_confirm_password = (user_confirm_password or ' ')
         self.user_email = user_email
         self.user_role = user_role
-        self.user = operation_for_db.SQLiteDB('*',
-                                              'users',
-                                              f'{self.f_user_name}',
-                                              f'{self.l_user_name}',
-                                              f'{self.user_login}',
-                                              f'{self.user_password}',
-                                              f'{self.user_email}',
-                                              f'{self.user_role}')
+        self.user = operation_for_db.SQLiteDBUser(f'{self.f_user_name}',
+                                                  f'{self.l_user_name}',
+                                                  f'{self.user_login}',
+                                                  f'{self.user_password}',
+                                                  f'{self.user_email}',
+                                                  f'{self.user_role}')
 
     def register(self):
-        self.user.select()
+        self.user.select_user()
         self.user_data = self.user.fetchone()
         if len(self.user_login) < 3:
             return 'chip_login'
@@ -48,7 +46,7 @@ class Auth:
 
         else:
             return self.user_password
-            # self.user_registration = operation_for_db.SQLiteDB('*',
+            # self.user_registration = operation_for_db.SQLiteDBUser('*',
             #                                   'users',
             #                                   f'{self.f_user_name}',
             #                                   f'{self.l_user_name}',
@@ -60,7 +58,7 @@ class Auth:
             # return True
 
     def login(self):
-        self.user.select()
+        self.user.select_user()
         self.user_data = self.user.fetchone()
         # Перевіряємо, чи існує користувач з таким ім'ям
         if not self.user_data:
