@@ -1,9 +1,10 @@
 import sys
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 from PyQt5.QtCore import QFile, QTextStream, QPoint
 from time import sleep
 import algor_login_window
+import operation_for_db
 
 from UI.main_window_ui import Ui_MainWindow
 
@@ -15,9 +16,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.ui.icon_only_widget.hide()
-        self.ui.stackedWidget.setCurrentIndex(0)
-        self.ui.main_btn_2.setChecked(True)
+        self.unit_button = None
+
+        # Стартовий стан дадатку
+        self.initial_state()
 
         # прозорість фону та приховування верхньої панелі вікна авторизацій
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -26,14 +28,18 @@ class MainWindow(QMainWindow):
         # відсілковування кнопок на клавіатурі
         self.keyPressEvent = self.on_search_key_press_event
 
+        # Для формування списку буддинків
+        self.units_build = operation_for_db.SQLiteDBUnits()
+        self.create_unit()
+
+        self.ui.new_unit_btn.clicked.connect(self.on_clicked_unit)
+
+        # Маніпуляції з вікном
         self.ui.maximized_btn.clicked.connect(self.on_maximized_btn_clicked)
         self.ui.normalize_btn.clicked.connect(self.on_normalize_btn_clicked)
         self.ui.normalize_btn.hide()
-        self.initial_state()
 
-        self.ui.back_button_results.clicked.connect(self.initial_state)
-        self.ui.open_unit_btn.clicked.connect(self.on_open_unit_btn)
-
+        self.ui.close_unit_btn.clicked.connect(self.initial_state)
 
     # роблю вікно переміщуваним, бо self.setWindowFlags(QtCore.Qt.FramelessWindowHint) забирає таку можливість
     def mousePressEvent(self, event):
@@ -53,10 +59,42 @@ class MainWindow(QMainWindow):
         self.ui.normalize_btn.hide()
         self.ui.maximized_btn.show()
 
+    def find_unit(self):
+        if self.units_build.select_units():
+            self.ui.new_unit_btn.setMinimumSize(QtCore.QSize(16777215, 10))
+            self.ui.new_unit_btn.setStyleSheet('font-size: 11px; margin: 0 9px;')
+        for unit in self.units_build.select_units().fetchall():
+            yield unit
+
+    def create_unit(self):
+        for unit in self.find_unit():
+            unit_button = QPushButton(self)
+            unit_button.setMinimumSize(QtCore.QSize(200, 70))
+            unit_button.setMaximumSize(QtCore.QSize(200, 70))
+            unit_button.setObjectName(f"build_{unit[0]}")
+            unit_button.setText(f'{unit[1]}')
+            self.ui.verticalLayout_8.addWidget(unit_button)
+            unit_button.clicked.connect(lambda: self.on_clicked_unit(unit_button.text()))
+
+    def on_clicked_unit(self, button_text):
+        self.ui.main_btn_1.hide()
+        self.ui.main_btn_2.hide()
+        self.ui.set_unit_btn_1.show()
+        self.ui.set_unit_btn_2.show()
+        self.ui.stackedWidget.setCurrentIndex(6)
+        self.ui.main_btn_2.setChecked(False)
+        self.ui.set_unit_btn_2.setChecked(True)
+        self.ui.unit_name_label.setText(f'{button_text}')
+        self.on_open_unit_btn()
 
     def initial_state(self):
+        self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.main_btn_2.setChecked(True)
+        self.ui.main_btn_1.show()
+        self.ui.main_btn_2.show()
+        self.ui.set_unit_btn_1.hide()
+        self.ui.set_unit_btn_2.hide()
         self.ui.results_btn_1.hide()
         self.ui.results_btn_2.hide()
         self.ui.archive_btn_1.hide()
@@ -102,22 +140,24 @@ class MainWindow(QMainWindow):
     #     user_form.show()
 
     # Change QPushButton Checkable status when stackedWidget index changed
-    def on_stackedWidget_currentChanged(self, index):
-        btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
-                    + self.ui.full_menu_widget.findChildren(QPushButton)
 
-        for btn in btn_list:
-            if index in [5, 6]:
-                btn.setAutoExclusive(False)
-                btn.setChecked(False)
-            else:
-                btn.setAutoExclusive(True)
+    # Функція дозволяє зробити активними 2 кнопки, що мають індекси 5 та 6 (в даному випадку)
+    # def on_stackedWidget_currentChanged(self, index):
+    #     btn_list = self.ui.icon_only_widget.findChildren(QPushButton) \
+    #                 + self.ui.full_menu_widget.findChildren(QPushButton)
+    #
+    #     for btn in btn_list:
+    #         if index in [5, 6]:
+    #             btn.setAutoExclusive(False)
+    #             btn.setChecked(False)
+    #         else:
+    #             btn.setAutoExclusive(True)
 
     # functions for changing menu page
-    def on_main_btn_1_toggled(self):
+    def on_main_btn_1_toggled(self, index):
         self.ui.stackedWidget.setCurrentIndex(0)
 
-    def on_main_btn_2_toggled(self):
+    def on_main_btn_2_toggled(self, index):
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def on_results_btn_1_toggled(self):
@@ -143,3 +183,9 @@ class MainWindow(QMainWindow):
 
     def on_counters_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(4)
+
+    def on_set_unit_btn_1_toggled(self):
+        self.ui.stackedWidget.setCurrentIndex(6)
+
+    def on_set_unit_btn_2_toggled(self):
+        self.ui.stackedWidget.setCurrentIndex(6)

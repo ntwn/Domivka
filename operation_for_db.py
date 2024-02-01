@@ -9,10 +9,10 @@ def path_to_db(path='data/database.db'):
 
 
 class SQLiteDBUser:
-
     user_password: str
 
-    def __init__(self, f_user_name, l_user_name, user_login, user_password, user_email, user_role, path_todb=f'{path_to_db()}'):
+    def __init__(self, f_user_name, l_user_name, user_login, user_password, user_email, user_role,
+                 path_todb=f'{path_to_db()}'):
         self.path_to_db = path_todb
         self.connection = sqlite3.connect(f'{self.path_to_db}')
         self.cursor = self.connection.cursor()
@@ -112,7 +112,6 @@ class SQLiteDBPerson:
         self.execute(query)
         return self
 
-
     def select_appartment_count(self):
         query = (f'SELECT COUNT(*) '
                  f'FROM apartment '
@@ -121,7 +120,7 @@ class SQLiteDBPerson:
         return self
 
     def select_vote_yes(self):
-        query = (f'SELECT * ' #vote_for_questions.vote as vote '
+        query = (f'SELECT * '  # vote_for_questions.vote as vote '
                  f'FROM person '
                  f'INNER JOIN vote_for_questions '
                  f'ON vote_for_questions.id_person = person.id '
@@ -130,7 +129,7 @@ class SQLiteDBPerson:
         return self
 
     def select_vote_no(self):
-        query = (f'SELECT * ' #vote_for_questions.vote as vote '
+        query = (f'SELECT * '  # vote_for_questions.vote as vote '
                  f'FROM person '
                  f'INNER JOIN vote_for_questions '
                  f'ON vote_for_questions.id_person = person.id '
@@ -158,3 +157,61 @@ class SQLiteDBPerson:
                  f'WHERE ???')
         self.execute(query)
         self.commit()
+
+
+class SQLiteDBUnits:
+    def __init__(self, name_unit=None, number=None, street=None, city=None, path_todb=f'{path_to_db()}'):
+        self.path_to_db = path_todb
+        self.connection = sqlite3.connect(f'{self.path_to_db}')
+        self.cursor = self.connection.cursor()
+        self.name_unit = name_unit
+        self.number = number
+        self.street = street
+        self.city = city
+
+    def __del__(self):
+        self.connection.close()
+
+    def execute(self, query):
+        self.cursor.execute(query)
+
+    def commit(self):
+        self.connection.commit()
+
+    def fetchone(self):
+        return self.cursor.fetchone()
+
+    def fetchall(self):
+        return self.cursor.fetchall()
+
+    def select_units(self):
+        query = (f'SELECT * '
+                 f'FROM units')
+        self.execute(query)
+        return self
+
+    def insert_unit(self):
+        query = (f'INSERT INTO units '
+                 f'(name_unit, number, street, city) '
+                 f'VALUES '
+                 f'("{self.name_unit}",'
+                 f' "{self.number}",'
+                 f' "{self.street}",'
+                 f' "{self.city}"')
+        self.execute(query)
+        self.commit()
+
+    def update_unit(self, name_unit, column, new_value):
+        query = (f'UPDATE units '
+                 f'SET {column} = {new_value} '
+                 f'WHERE name_unit = "{name_unit}"')
+        self.execute(query)
+        self.commit()
+
+    def delete_delete(self):
+        query = (f'DELETE FROM users '
+                 f'WHERE user_login = "{self.name_unit}"')
+        self.execute(query)
+        self.commit()
+
+

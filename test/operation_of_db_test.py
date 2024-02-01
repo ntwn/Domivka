@@ -1,6 +1,6 @@
 import sqlite3
 
-def select_area(street, city):
+def select_area(unit_number):
     connection = sqlite3.connect('../data/database.db')
     cursor = connection.cursor()
     cursor.execute(f'SELECT person.* '
@@ -9,8 +9,7 @@ def select_area(street, city):
                    f'ON apartment.number_of_apartment = person.number_of_apartment '
                    f'WHERE '
                    # f'person.number_of_apartment == {number_of_apartment} AND '
-                   f'apartment.street == {street} AND '
-                   f'apartment.city == {city}')
+                   f'apartment.unit == {unit_number}')
     cur = cursor.fetchall()
     connection.close()
     return cur
@@ -28,36 +27,37 @@ def select_person_area(person_id):
     return cur
 
 
-def select_apartment_count(street, city):
+def select_apartment_count(unit_number):
     connection = sqlite3.connect('../data/database.db')
     cursor = connection.cursor()
     cursor.execute(f'SELECT COUNT(*), SUM(area) '
                    f'FROM apartment '
-                   f'WHERE street = {street} AND city = {city}')
+                   f'WHERE apartment.unit == {unit_number}')
     cur = cursor.fetchone()
     connection.close()
     return cur
 
 
-def select_person_count(street, city):
+def select_person_count(unit_number):
     connection = sqlite3.connect('../data/database.db')
     cursor = connection.cursor()
     cursor.execute(f'SELECT COUNT(*) '
                    f'FROM person '
                    f'INNER JOIN apartment '
                    f'ON person.number_of_apartment = apartment.number_of_apartment '
-                   f'WHERE apartment.street = {street} AND apartment.city = {city}')
+                   f'WHERE apartment.unit == {unit_number}')
     cur = cursor.fetchone()
     connection.close()
     return cur
 
 
-area_of_house = round(select_apartment_count(2, 1)[1], 2)
-count = int(select_apartment_count(2, 1)[0])
+area_of_house = round(select_apartment_count(1)[1], 2)
+count = int(select_apartment_count(1)[0])
 area = 0
 
-for i in select_area(2, 1):
-    area += i[-1]
+for i in select_area(1):
+    print(i)
+    area += i[-3]
 
 
 def select_vote_yes_on_meeting(person_id):
@@ -117,7 +117,7 @@ i = 1
 area_yes, area_no, area_yes_w, area_no_w = 0, 0, 0, 0
 count_yes, count_no, count_yes_w, count_no_w = 0, 0, 0, 0
 
-while i < select_person_count(2, 1)[0]:
+while i < select_person_count(1)[0]:
     if select_vote_yes_on_meeting(i):
         # print(f'+ {select_vote_yes_on_meeting(i)[0:4]}')
         area_yes += select_person_area(i)[0]
@@ -140,7 +140,7 @@ print(' ')
 print(f'Кількість квартир: {count}')
 print(f'Площа будинку: {area_of_house}')
 print(f'Площа заселена: {round(area, 2)}')
-print(f'Кількість жителів: {(select_person_count(2, 1)[0])}')
+print(f'Кількість жителів: {(select_person_count(1)[0])}')
 print('------------------------------AREA----------------------------------')
 print(f'Yes {round(area_yes, 2)} m2')
 print(f'NO {round(area_no, 2)} m2')
