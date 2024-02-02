@@ -18,4 +18,3 @@ class Calculate:
 
     def calculate_percent_of_residents_vote_za(self):
         pass
-

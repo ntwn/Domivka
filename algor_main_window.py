@@ -1,11 +1,10 @@
 import sys
 from PyQt5 import QtCore, QtWidgets, QtGui
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
-from PyQt5.QtCore import QFile, QTextStream, QPoint
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView
+from PyQt5.QtCore import QFile, QTextStream, QPoint, Qt, QAbstractTableModel
 from time import sleep
 import algor_login_window
 import operation_for_db
-
 from UI.main_window_ui import Ui_MainWindow
 
 
@@ -17,6 +16,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.unit_button = None
+        self.buttons = []
 
         # Стартовий стан дадатку
         self.initial_state()
@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
         self.units_build = operation_for_db.SQLiteDBUnits()
         self.create_unit()
 
-        self.ui.new_unit_btn.clicked.connect(self.on_clicked_unit)
+        self.ui.new_unit_btn.clicked.connect(self.on_clicked_create_new_unit_btn)
 
         # Маніпуляції з вікном
         self.ui.maximized_btn.clicked.connect(self.on_maximized_btn_clicked)
@@ -59,8 +59,18 @@ class MainWindow(QMainWindow):
         self.ui.normalize_btn.hide()
         self.ui.maximized_btn.show()
 
+    def on_clicked_create_new_unit_btn(self):
+        name_unit = input('name - ')
+        number_unit = input('number - ')
+        street_unit = input('street - ')
+        city_unit = input('city - ')
+        new_unit = operation_for_db.SQLiteDBUnits(name_unit, number_unit, street_unit, city_unit)
+        new_unit.insert_unit()
+        print('Будинок створено!')
+
+    # перебирає таблицю з будинками та створює кнопку на кожен будинок
     def find_unit(self):
-        if self.units_build.select_units():
+        if len(self.units_build.select_units().fetchall()) > 0:
             self.ui.new_unit_btn.setMinimumSize(QtCore.QSize(16777215, 10))
             self.ui.new_unit_btn.setStyleSheet('font-size: 11px; margin: 0 9px;')
         for unit in self.units_build.select_units().fetchall():
@@ -73,10 +83,13 @@ class MainWindow(QMainWindow):
             unit_button.setMaximumSize(QtCore.QSize(200, 70))
             unit_button.setObjectName(f"build_{unit[0]}")
             unit_button.setText(f'{unit[1]}')
+            unit_button.clicked.connect(self.on_clicked_unit)
+            self.buttons.append(unit_button)
             self.ui.verticalLayout_8.addWidget(unit_button)
-            unit_button.clicked.connect(lambda: self.on_clicked_unit(unit_button.text()))
 
-    def on_clicked_unit(self, button_text):
+    # дія по натисканню на кнопку будинку
+    def on_clicked_unit(self):
+        button_text = self.sender()
         self.ui.main_btn_1.hide()
         self.ui.main_btn_2.hide()
         self.ui.set_unit_btn_1.show()
@@ -84,9 +97,44 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(6)
         self.ui.main_btn_2.setChecked(False)
         self.ui.set_unit_btn_2.setChecked(True)
-        self.ui.unit_name_label.setText(f'{button_text}')
-        self.on_open_unit_btn()
+        self.ui.unit_name_label.setText(f'{button_text.text()}')
+        self.ui.results_btn_1.show()
+        self.ui.results_btn_2.show()
+        self.ui.archive_btn_1.show()
+        self.ui.archive_btn_2.show()
+        self.ui.co_owners_btn_1.show()
+        self.ui.co_owners_btn_2.show()
+        self.ui.counters_btn_1.show()
+        self.ui.counters_btn_2.show()
+        self.create_list_person()
 
+    # отримав ID поточного будинку
+    def find_current_unit_id(self):
+        unit_on_button = self.sender()
+        unit = operation_for_db.SQLiteDBUnits(name_unit=f'{unit_on_button.text()}')
+        for name in unit.select_units().fetchall():
+            if f'{unit_on_button.text()}' in name:
+                return name[0]
+
+    def create_list_person(self):
+        current_unit = operation_for_db.SQLiteDBPerson(unit_number=self.find_current_unit_id())
+        model = PersonTableView(current_unit.select_list_person().fetchall())
+        self.ui.person_table_view.setModel(model)
+        self.person_table_setting()
+
+    def person_table_setting(self):
+        # Отримання заголовка
+        header_table = self.ui.person_table_view.horizontalHeader()
+        header_table.setSectionResizeMode(QHeaderView.Stretch)
+
+        # Шрифт
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(11)
+        font.setBold(True)
+        header_table.setFont(font)
+
+    # початковий стан вікна, коли не обрано жодного будинку
     def initial_state(self):
         self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
@@ -103,16 +151,6 @@ class MainWindow(QMainWindow):
         self.ui.co_owners_btn_2.hide()
         self.ui.counters_btn_1.hide()
         self.ui.counters_btn_2.hide()
-
-    def on_open_unit_btn(self):
-        self.ui.results_btn_1.show()
-        self.ui.results_btn_2.show()
-        self.ui.archive_btn_1.show()
-        self.ui.archive_btn_2.show()
-        self.ui.co_owners_btn_1.show()
-        self.ui.co_owners_btn_2.show()
-        self.ui.counters_btn_1.show()
-        self.ui.counters_btn_2.show()
 
     # Робота з полем пошуку
     def on_search_btn_clicked(self):
@@ -189,3 +227,27 @@ class MainWindow(QMainWindow):
 
     def on_set_unit_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(6)
+
+
+class PersonTableView(QAbstractTableModel):
+    def __init__(self, data):
+        super().__init__()
+        self._data = data
+
+    def rowCount(self, parent=None):
+        return len(self._data)
+
+    def columnCount(self, parent=None):
+        return len(self._data[0])
+
+    def data(self, index, role=Qt.DisplayRole):
+        if role == Qt.DisplayRole:
+            return self._data[index.row()][index.column()]
+
+    def headerData(self, section, orientation, role=Qt.DisplayRole):
+        if role == Qt.DisplayRole:
+            if orientation == Qt.Horizontal:
+                return ["Квартира", "Прізвище", "Ім'я", "По батькові", "Документ", "Площа", "Квитанція"][section]
+            # else:
+            #     return str(section)
+

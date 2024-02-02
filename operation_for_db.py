@@ -76,11 +76,12 @@ class SQLiteDBUser:
 
 class SQLiteDBPerson:
 
-    def __init__(self, person_id, number_of_apartment, street, city, path_todb=f'{path_to_db()}'):
+    def __init__(self, person_id=None, number_of_apartment=None, unit_number=None, street=None, city=None, path_todb=f'{path_to_db()}'):
         self.path_to_db = path_todb
         self.connection = sqlite3.connect(f'{self.path_to_db}')
         self.cursor = self.connection.cursor()
         self.number_of_apartment = number_of_apartment
+        self.unit_number = unit_number
         self.street = street
         self.city = city
         self.person_id = person_id
@@ -112,10 +113,26 @@ class SQLiteDBPerson:
         self.execute(query)
         return self
 
-    def select_appartment_count(self):
+    def select_apartment_count(self):
         query = (f'SELECT COUNT(*) '
                  f'FROM apartment '
                  f'WHERE street = {self.street} AND city = {self.city}')
+        self.execute(query)
+        return self
+
+    def select_list_person(self):
+        query = (f'SELECT '
+                 f'apartment.number_of_apartment, '
+                 f'person.first_name, '
+                 f'person.last_name, '
+                 f'person.father_name, '
+                 f'person.document_atrr, '
+                 f'person.area, '
+                 f'person.payment_receipts '
+                 f'FROM apartment '
+                 f'INNER JOIN person '
+                 f'ON apartment.number_of_apartment = person.number_of_apartment '
+                 f'WHERE apartment.unit == {self.unit_number}')
         self.execute(query)
         return self
 
@@ -197,7 +214,7 @@ class SQLiteDBUnits:
                  f'("{self.name_unit}",'
                  f' "{self.number}",'
                  f' "{self.street}",'
-                 f' "{self.city}"')
+                 f' "{self.city}")')
         self.execute(query)
         self.commit()
 
@@ -213,5 +230,3 @@ class SQLiteDBUnits:
                  f'WHERE user_login = "{self.name_unit}"')
         self.execute(query)
         self.commit()
-
-

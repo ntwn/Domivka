@@ -86,5 +86,4 @@ if __name__ == "__main__":
     user_form = UserForm()
     delete_user_form = DeleteUserForm()
 
-
     sys.exit(app.exec_())

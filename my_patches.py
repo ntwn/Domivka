@@ -1,13 +1,9 @@
 import string
 import hashlib
 
-# import main
-from UI.login_window_ui import Ui_LoginWindow
 
 # не допускає, некоректноє інпута в поле input (ТРЕБА ПОЯСНИТИ ТОЧНІШЕ)
 # певно вона піде під видалення
-
-
 def coalesce(*args):
     for arg in args:
         if arg != '' and arg is not None:

@@ -1,5 +1,8 @@
 import sqlite3
 
+import operation_for_db
+
+
 def select_area(unit_number):
     connection = sqlite3.connect('../data/database.db')
     cursor = connection.cursor()
@@ -56,7 +59,7 @@ count = int(select_apartment_count(1)[0])
 area = 0
 
 for i in select_area(1):
-    print(i)
+    # print(i)
     area += i[-3]
 
 
@@ -135,6 +138,10 @@ while i < select_person_count(1)[0]:
         area_no_w += select_person_area(i)[0]
         count_no_w += 1
     i += 1
+
+list_person = operation_for_db.SQLiteDBPerson(unit_number=1, path_todb='../data/database.db')
+for i in list_person.select_list_person().fetchall():
+    print(i)
 
 print(' ')
 print(f'Кількість квартир: {count}')
