@@ -3,7 +3,7 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView
 from PyQt5.QtCore import QFile, QTextStream, QPoint, Qt, QAbstractTableModel
 from time import sleep
-import algor_login_window
+import my_patches
 import operation_for_db
 from UI.main_window_ui import Ui_MainWindow
 
@@ -238,7 +238,7 @@ class PersonTableView(QAbstractTableModel):
         return len(self._data)
 
     def columnCount(self, parent=None):
-        return len(self._data[0])
+        return len(self._data[0]) if self._data else 7
 
     def data(self, index, role=Qt.DisplayRole):
         if role == Qt.DisplayRole:
