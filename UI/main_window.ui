@@ -52,184 +52,134 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="1" rowspan="2">
-     <widget class="QWidget" name="full_menu_widget" native="true">
+    <item row="0" column="0" rowspan="2">
+     <widget class="QWidget" name="icon_only_widget" native="true">
       <property name="styleSheet">
-       <string notr="true">#full_menu_widget {background-color: #286465;
+       <string notr="true">#icon_only_widget {background-color: #286465;
+		width:50px;
 		border-top-right-radius: 0;
 		border-bottom-right-radius: 0;}
 
-#full_menu_widget QPushButton {
+#icon_only_widget QPushButton, QLabel {
+		height:50px;
 		border:none;
-		border-radius: 3px;
-		text-align: left;
-		padding: 8px 0 8px 10px;
-	    background-color:#286465;
-	    color: rgb(200, 200, 200);
-}
-
-#full_menu_widget QPushButton:hover {
-		background-color: rgba(86, 101, 115, 0.5);
 	}
 
-	#full_menu_widget QPushButton:checked {
-		color: #fff;
-		font: 12pt &quot;Gotham Pro&quot;;
-	}</string>
+#icon_only_widget QPushButton {
+	 background-color:#286465;
+}
+
+#icon_only_widget QPushButton:hover {background-color: rgba( 86, 101, 115, 0.5);}
+</string>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <widget class="QLabel" name="logo_label_1">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding: 5px;
+background-color:#286465;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
          <property name="spacing">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="logo_label_2">
-           <property name="minimumSize">
+          <widget class="QPushButton" name="set_unit_btn_1">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
+             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
+           </property>
+           <property name="iconSize">
             <size>
-             <width>40</width>
-             <height>40</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
+           <property name="checkable">
+            <bool>true</bool>
            </property>
+           <property name="autoExclusive">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="main_btn_1">
            <property name="styleSheet">
-            <string notr="true">#logo_label_2 {
-		padding: 5px;
-		color: #fff;
-		background-color:#286465;
-	}</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string/>
            </property>
-           <property name="pixmap">
-            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
+             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
            </property>
-           <property name="scaledContents">
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="autoExclusive">
             <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="logo_label_3">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>15</pointsize>
-             <weight>75</weight>
-             <italic>false</italic>
-             <bold>true</bold>
-             <underline>false</underline>
-             <strikeout>false</strikeout>
-            </font>
-           </property>
+          <widget class="QPushButton" name="results_btn_1">
            <property name="styleSheet">
-            <string notr="true">#logo_label_3 {
-		padding-right: 10px;
-		color: #fff;
-		background-color:#286465;
-	}</string>
+            <string notr="true"/>
            </property>
            <property name="text">
-            <string>Домівка</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>6</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="set_unit_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Головна</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="main_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Головна</string>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>14</width>
-             <height>14</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="results_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Результати</string>
+            <string/>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -238,8 +188,8 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
            <property name="checkable">
@@ -251,17 +201,12 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="archive_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
+          <widget class="QPushButton" name="archive_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
            </property>
            <property name="text">
-            <string>Архів</string>
+            <string/>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -270,8 +215,8 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
            <property name="checkable">
@@ -283,17 +228,12 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="co_owners_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
+          <widget class="QPushButton" name="co_owners_btn_1">
+           <property name="styleSheet">
+            <string notr="true"/>
            </property>
            <property name="text">
-            <string>Співвласники</string>
+            <string/>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -302,8 +242,8 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
            <property name="checkable">
@@ -315,20 +255,12 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="counters_btn_2">
-           <property name="font">
-            <font>
-             <family>Century Gothic</family>
-             <pointsize>11</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-            </font>
-           </property>
+          <widget class="QPushButton" name="counters_btn_1">
            <property name="styleSheet">
             <string notr="true"/>
            </property>
            <property name="text">
-            <string>Лічильники</string>
+            <string/>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -337,8 +269,8 @@
            </property>
            <property name="iconSize">
             <size>
-             <width>14</width>
-             <height>14</height>
+             <width>20</width>
+             <height>20</height>
             </size>
            </property>
            <property name="checkable">
@@ -352,33 +284,22 @@
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacer_2">
+        <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>373</height>
+           <height>375</height>
           </size>
          </property>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="exit_btn_2">
-         <property name="font">
-          <font>
-           <family>Century Gothic</family>
-           <pointsize>9</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">padding: 10px;</string>
-         </property>
+        <widget class="QPushButton" name="exit_btn_1">
          <property name="text">
-          <string>Закрити</string>
+          <string/>
          </property>
          <property name="icon">
           <iconset resource="resource.qrc">
@@ -386,11 +307,164 @@
          </property>
          <property name="iconSize">
           <size>
-           <width>14</width>
-           <height>14</height>
+           <width>20</width>
+           <height>20</height>
           </size>
          </property>
         </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="styleSheet">
+       <string notr="true">#maximized_btn {margin-bottom: 10px;}
+
+#normalize_btn {margin-bottom: 10px;}
+
+#hide_btn {margin-bottom: 10px;}</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="change_btn">
+           <property name="styleSheet">
+            <string notr="true">padding: 5px;
+border: none;
+width: 30px;
+height: 30px;</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/menu-4-32.ico</normaloff>:/icon/icon/menu-4-32.ico</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>14</width>
+             <height>14</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="search_input">
+           <property name="styleSheet">
+            <string notr="true">#search_input {
+		border: none;
+		padding: 5px 10px;
+	}
+
+#search_input:focus {
+		background-color: #70B9FE;
+	}</string>
+           </property>
+           <property name="placeholderText">
+            <string>Search...</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="search_btn">
+           <property name="styleSheet">
+            <string notr="true">#search_btn {	border: none;
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/icon/icon/search-13-48.ico</normaloff>
+             <normalon>:/icon/icon/search-13-48.ico</normalon>:/icon/icon/search-13-48.ico</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="hide_btn">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string> __ </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="normalize_btn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="font">
+            <font>
+             <family>Wingdings 2</family>
+             <pointsize>15</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string></string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="maximized_btn">
+           <property name="font">
+            <font>
+             <family>Wingdings 2</family>
+             <pointsize>17</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string></string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>
@@ -629,23 +703,11 @@
            </property>
            <item row="0" column="0">
             <widget class="QWidget" name="co_owners_widget" native="true">
-             <layout class="QGridLayout" name="gridLayout_5">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <item row="0" column="0">
+             <property name="styleSheet">
+              <string notr="true">border-radius:0;</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <item>
                <widget class="QWidget" name="person_buttons_widget" native="true">
                 <property name="font">
                  <font>
@@ -666,6 +728,15 @@ color:#000;}
 #person_buttons_widget{
 border-bottom: 1px solid #ddd;
 border-radius: 0;
+}
+/*#person_buttons_widget QPushButton:hover {
+background-color: rgba(86, 101, 115, 0.5);
+}*/
+
+
+#person_buttons_widget QPushButton:checked {
+font-weight: bold;
+color:#000;
 }</string>
                 </property>
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -695,6 +766,12 @@ border-radius: 0;
                    <property name="text">
                     <string>Створити співмешканця</string>
                    </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item>
@@ -710,6 +787,12 @@ border-radius: 0;
                    </property>
                    <property name="text">
                     <string>Редагувати співмешканця</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -731,17 +814,1218 @@ color: rgba(0, 0, 0, 150);
 
 #delete_person_button:hover{
 color: rgb(170, 0, 0);
+}
+
+#delete_person_button:checked {
+font-weight: bold;
+color:rgb(170, 0, 0);
 }</string>
                    </property>
                    <property name="text">
                     <string>Видалити співмешканця</string>
+                   </property>
+                   <property name="checkable">
+                    <bool>true</bool>
+                   </property>
+                   <property name="autoExclusive">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
                 </layout>
                </widget>
               </item>
-              <item row="1" column="0">
+              <item>
+               <widget class="QStackedWidget" name="create_edit_delete_stackedWidget">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>120</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>130</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Century Gothic</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">
+</string>
+                </property>
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <widget class="QWidget" name="create_w">
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QWidget" name="create_co_owner_widget" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Century Gothic</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">#create_co_owner_widget{
+border-bottom:1px solid #ddd;}
+
+#create_co_owner_widget QLineEdit{
+border-bottom:1px solid #ddd;}</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_13">
+                     <property name="leftMargin">
+                      <number>18</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>7</number>
+                     </property>
+                     <item>
+                      <layout class="QHBoxLayout" name="create_co_owner_horizontal_layout">
+                       <property name="bottomMargin">
+                        <number>9</number>
+                       </property>
+                       <item>
+                        <spacer name="horizontalSpacer_7">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="create_f_l_fath_name_layout">
+                         <property name="spacing">
+                          <number>3</number>
+                         </property>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_f_name_layout">
+                           <item>
+                            <widget class="QLabel" name="create_f_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Прізвище</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="create_f_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_l_name_layout">
+                           <item>
+                            <widget class="QLabel" name="create_l_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Ім'я</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="create_l_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_father_name_layout">
+                           <item>
+                            <widget class="QLabel" name="create_father_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>По батькові</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="create_father_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="create_num_apart_area_pay_rec_layout">
+                         <property name="spacing">
+                          <number>3</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>33</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>65</number>
+                         </property>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_num_apartment_layout">
+                           <item>
+                            <widget class="QLabel" name="create_num_apartment_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Квартира</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="create_num_apartment_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_6">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_area_layout">
+                           <item>
+                            <widget class="QLabel" name="create_area_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Частка</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="create_area_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="create_area_m2_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>40</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>40</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>м. кв.</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_10">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="create_payment_receipts_layout">
+                           <item>
+                            <widget class="QCheckBox" name="create_payment_receipts_checkBox">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Квитанція</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QDialogButtonBox" name="confirm_create_person_buttonBox">
+                       <property name="font">
+                        <font>
+                         <family>Century Gothic</family>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 10pt &quot;Century Gothic&quot;;
+padding: 0 40px;
+</string>
+                       </property>
+                       <property name="standardButtons">
+                        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Yes</set>
+                       </property>
+                       <property name="centerButtons">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="edit_w">
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QWidget" name="edit_co_owner_widget" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">#edit_co_owner_widget{
+border-bottom:1px solid #ddd;}
+
+#edit_co_owner_widget QLineEdit{
+border-bottom:1px solid #ddd;}</string>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_14">
+                     <property name="leftMargin">
+                      <number>18</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>7</number>
+                     </property>
+                     <item>
+                      <layout class="QHBoxLayout" name="edit_co_owner_layout">
+                       <property name="bottomMargin">
+                        <number>9</number>
+                       </property>
+                       <item>
+                        <spacer name="horizontalSpacer_8">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="edit_f_l_fath_name_layout">
+                         <property name="spacing">
+                          <number>3</number>
+                         </property>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_f_name_layout">
+                           <item>
+                            <widget class="QLabel" name="edit_f_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Прізвище</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="edit_f_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_l_name_layout">
+                           <item>
+                            <widget class="QLabel" name="edit_l_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Ім'я</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="edit_l_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_father_name_layout">
+                           <item>
+                            <widget class="QLabel" name="edit_father_name_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>По батькові</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="edit_father_name_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>200</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>200</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="edit_num_apart_area_pay_rec_layout">
+                         <property name="spacing">
+                          <number>3</number>
+                         </property>
+                         <property name="leftMargin">
+                          <number>33</number>
+                         </property>
+                         <property name="rightMargin">
+                          <number>65</number>
+                         </property>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_num_apartment_layout">
+                           <item>
+                            <widget class="QLabel" name="edit_num_apartment_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Квартира</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="edit_num_apartment_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_5">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_area_layout">
+                           <item>
+                            <widget class="QLabel" name="edit_area_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Частка</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="edit_area_lineEdit">
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>100</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="edit_area_m2_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>40</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>40</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>м. кв.</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <spacer name="horizontalSpacer_9">
+                             <property name="orientation">
+                              <enum>Qt::Horizontal</enum>
+                             </property>
+                             <property name="sizeHint" stdset="0">
+                              <size>
+                               <width>40</width>
+                               <height>20</height>
+                              </size>
+                             </property>
+                            </spacer>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="edit_payment_receipts_layout">
+                           <item>
+                            <widget class="QCheckBox" name="edit_payment_receipts_checkBox">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Квитанція</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <spacer name="horizontalSpacer_4">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
+                     </item>
+                     <item>
+                      <widget class="QDialogButtonBox" name="confirm_edit_person_buttonBox">
+                       <property name="font">
+                        <font>
+                         <family>Century Gothic</family>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">font: 10pt &quot;Century Gothic&quot;;
+padding: 0 40px;
+</string>
+                       </property>
+                       <property name="standardButtons">
+                        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Yes</set>
+                       </property>
+                       <property name="centerButtons">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="delete_w">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QWidget" name="delete_co_owner_widget" native="true">
+                    <property name="styleSheet">
+                     <string notr="true">#delete_co_owner_widget{
+border-bottom:1px solid #ddd;}</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_5">
+                     <item row="0" column="0">
+                      <layout class="QVBoxLayout" name="delete_co_owners_verticalLayout">
+                       <item>
+                        <widget class="QLabel" name="confirm_delete_label">
+                         <property name="font">
+                          <font>
+                           <family>Century Gothic</family>
+                           <pointsize>10</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(170, 0, 0);</string>
+                         </property>
+                         <property name="text">
+                          <string>Підтвердити видалення</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_4">
+                         <item>
+                          <layout class="QHBoxLayout" name="del_apart_horizontal_layout">
+                           <item>
+                            <widget class="QLabel" name="del_apart_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Квартира №</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="del_num_apart_label">
+                             <property name="minimumSize">
+                              <size>
+                               <width>29</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>__</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="del_name_horizontal_layout">
+                           <item>
+                            <widget class="QLabel" name="del_f_name_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>first_name</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="del_l_name_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>last_name</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="del_father_name_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>father_name</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <layout class="QHBoxLayout" name="del_area_horizontal_layout">
+                           <item>
+                            <widget class="QLabel" name="del_area_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Частка:</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="del_area_num_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                               <weight>75</weight>
+                               <bold>true</bold>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>__</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="del_area_m2_label">
+                             <property name="font">
+                              <font>
+                               <family>Century Gothic</family>
+                               <pointsize>10</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>м. кв.</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item>
+                          <widget class="QLabel" name="del_pay_rec_mesage_label">
+                           <property name="font">
+                            <font>
+                             <family>Century Gothic</family>
+                             <pointsize>9</pointsize>
+                             <weight>50</weight>
+                             <bold>false</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">color: rgb(255, 0, 0);</string>
+                           </property>
+                           <property name="text">
+                            <string>Cпівмешканець
+отримував
+квитанції про оплату</string>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <widget class="QDialogButtonBox" name="confirm_delete_person_buttonBox">
+                         <property name="font">
+                          <font>
+                           <family>Century Gothic</family>
+                           <pointsize>10</pointsize>
+                          </font>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">font: 10pt &quot;Century Gothic&quot;;
+padding: 0 40px;
+</string>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="standardButtons">
+                          <set>QDialogButtonBox::Cancel|QDialogButtonBox::Yes</set>
+                         </property>
+                         <property name="centerButtons">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+              <item>
                <layout class="QVBoxLayout" name="person_table_vb_layout" stretch="0">
                 <property name="spacing">
                  <number>0</number>
@@ -1087,35 +2371,125 @@ p, li { white-space: pre-wrap; }
       </layout>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="QWidget" name="widget_4" native="true">
+    <item row="0" column="1" rowspan="2">
+     <widget class="QWidget" name="full_menu_widget" native="true">
       <property name="styleSheet">
-       <string notr="true">#maximized_btn {margin-bottom: 10px;}
+       <string notr="true">#full_menu_widget {background-color: #286465;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;}
 
-#normalize_btn {margin-bottom: 10px;}
+#full_menu_widget QPushButton {
+		border:none;
+		border-radius: 3px;
+		text-align: left;
+		padding: 8px 0 8px 10px;
+	    background-color:#286465;
+	    color: rgb(200, 200, 200);
+}
 
-#hide_btn {margin-bottom: 10px;}</string>
+#full_menu_widget QPushButton:hover {
+		background-color: rgba(86, 101, 115, 0.5);
+	}
+
+	#full_menu_widget QPushButton:checked {
+		color: #fff;
+		font: 12pt &quot;Gotham Pro&quot;;
+	}</string>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
          <property name="spacing">
-          <number>6</number>
+          <number>0</number>
          </property>
          <item>
-          <widget class="QPushButton" name="change_btn">
+          <widget class="QLabel" name="logo_label_2">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
            <property name="styleSheet">
-            <string notr="true">padding: 5px;
-border: none;
-width: 30px;
-height: 30px;</string>
+            <string notr="true">#logo_label_2 {
+		padding: 5px;
+		color: #fff;
+		background-color:#286465;
+	}</string>
            </property>
            <property name="text">
             <string/>
            </property>
+           <property name="pixmap">
+            <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="logo_label_3">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>15</pointsize>
+             <weight>75</weight>
+             <italic>false</italic>
+             <bold>true</bold>
+             <underline>false</underline>
+             <strikeout>false</strikeout>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#logo_label_3 {
+		padding-right: 10px;
+		color: #fff;
+		background-color:#286465;
+	}</string>
+           </property>
+           <property name="text">
+            <string>Домівка</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="set_unit_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Головна</string>
+           </property>
            <property name="icon">
             <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/menu-4-32.ico</normaloff>:/icon/icon/menu-4-32.ico</iconset>
+             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
+             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -1126,194 +2500,23 @@ height: 30px;</string>
            <property name="checkable">
             <bool>true</bool>
            </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="search_input">
-           <property name="styleSheet">
-            <string notr="true">#search_input {
-		border: none;
-		padding: 5px 10px;
-	}
-
-#search_input:focus {
-		background-color: #70B9FE;
-	}</string>
-           </property>
-           <property name="placeholderText">
-            <string>Search...</string>
+           <property name="autoExclusive">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="search_btn">
-           <property name="styleSheet">
-            <string notr="true">#search_btn {	border: none;
-}</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/search-13-48.ico</normaloff>
-             <normalon>:/icon/icon/search-13-48.ico</normalon>:/icon/icon/search-13-48.ico</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="hide_btn">
+          <widget class="QPushButton" name="main_btn_2">
            <property name="font">
             <font>
              <family>Century Gothic</family>
-             <pointsize>9</pointsize>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
             </font>
            </property>
            <property name="text">
-            <string> __ </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="normalize_btn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="font">
-            <font>
-             <family>Wingdings 2</family>
-             <pointsize>15</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string></string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="maximized_btn">
-           <property name="font">
-            <font>
-             <family>Wingdings 2</family>
-             <pointsize>17</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string></string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="0" column="0" rowspan="2">
-     <widget class="QWidget" name="icon_only_widget" native="true">
-      <property name="styleSheet">
-       <string notr="true">#icon_only_widget {background-color: #286465;
-		width:50px;
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;}
-
-#icon_only_widget QPushButton, QLabel {
-		height:50px;
-		border:none;
-	}
-
-#icon_only_widget QPushButton {
-	 background-color:#286465;
-}
-
-#icon_only_widget QPushButton:hover {background-color: rgba( 86, 101, 115, 0.5);}
-</string>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="logo_label_1">
-         <property name="minimumSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">padding: 5px;
-background-color:#286465;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="resource.qrc">:/icon/icon/Logo.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QPushButton" name="set_unit_btn_1">
-           <property name="text">
-            <string/>
+            <string>Головна</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -1322,8 +2525,8 @@ background-color:#286465;</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>14</width>
+             <height>14</height>
             </size>
            </property>
            <property name="checkable">
@@ -1335,39 +2538,17 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="main_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
+          <widget class="QPushButton" name="results_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset resource="resource.qrc">
-             <normaloff>:/icon/icon/home-4-32.ico</normaloff>
-             <normalon>:/icon/icon/home-4-48.ico</normalon>:/icon/icon/home-4-32.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>20</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="autoExclusive">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="results_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="text">
-            <string/>
+            <string>Результати</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -1376,8 +2557,8 @@ background-color:#286465;</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>14</width>
+             <height>14</height>
             </size>
            </property>
            <property name="checkable">
@@ -1389,12 +2570,17 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="archive_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
+          <widget class="QPushButton" name="archive_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="text">
-            <string/>
+            <string>Архів</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -1403,8 +2589,8 @@ background-color:#286465;</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>14</width>
+             <height>14</height>
             </size>
            </property>
            <property name="checkable">
@@ -1416,12 +2602,17 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="co_owners_btn_1">
-           <property name="styleSheet">
-            <string notr="true"/>
+          <widget class="QPushButton" name="co_owners_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
            </property>
            <property name="text">
-            <string/>
+            <string>Співвласники</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -1430,8 +2621,8 @@ background-color:#286465;</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>14</width>
+             <height>14</height>
             </size>
            </property>
            <property name="checkable">
@@ -1443,12 +2634,20 @@ background-color:#286465;</string>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="counters_btn_1">
+          <widget class="QPushButton" name="counters_btn_2">
+           <property name="font">
+            <font>
+             <family>Century Gothic</family>
+             <pointsize>11</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true"/>
            </property>
            <property name="text">
-            <string/>
+            <string>Лічильники</string>
            </property>
            <property name="icon">
             <iconset resource="resource.qrc">
@@ -1457,8 +2656,8 @@ background-color:#286465;</string>
            </property>
            <property name="iconSize">
             <size>
-             <width>20</width>
-             <height>20</height>
+             <width>14</width>
+             <height>14</height>
             </size>
            </property>
            <property name="checkable">
@@ -1472,22 +2671,33 @@ background-color:#286465;</string>
         </layout>
        </item>
        <item>
-        <spacer name="verticalSpacer">
+        <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>375</height>
+           <height>373</height>
           </size>
          </property>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="exit_btn_1">
+        <widget class="QPushButton" name="exit_btn_2">
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+           <pointsize>9</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding: 10px;</string>
+         </property>
          <property name="text">
-          <string/>
+          <string>Закрити</string>
          </property>
          <property name="icon">
           <iconset resource="resource.qrc">
@@ -1495,8 +2705,8 @@ background-color:#286465;</string>
          </property>
          <property name="iconSize">
           <size>
-           <width>20</width>
-           <height>20</height>
+           <width>14</width>
+           <height>14</height>
           </size>
          </property>
         </widget>
@@ -1812,6 +3022,102 @@ background-color:#286465;</string>
     <hint type="destinationlabel">
      <x>20</x>
      <y>72</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>confirm_create_person_buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>643</x>
+     <y>227</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>confirm_edit_person_buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>232</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>confirm_delete_person_buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>create_new_person_button</sender>
+   <signal>clicked()</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>edit_person_button</sender>
+   <signal>clicked()</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>87</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>delete_person_button</sender>
+   <signal>clicked()</signal>
+   <receiver>create_edit_delete_stackedWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>725</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>174</y>
     </hint>
    </hints>
   </connection>

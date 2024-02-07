@@ -1,6 +1,8 @@
 import sys
+
+# import PyQt5.QtWidgets.QPushButton
 from PyQt5 import QtCore, QtWidgets, QtGui
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QHeaderView, QDialogButtonBox
 from PyQt5.QtCore import QFile, QTextStream, QPoint, Qt, QAbstractTableModel
 from time import sleep
 import my_patches
@@ -11,15 +13,15 @@ from UI.main_window_ui import Ui_MainWindow
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
         self.unit_button = None
-        self.buttons = []
+        # self.buttons = []
 
         # Стартовий стан дадатку
         self.initial_state()
+        self.ui.icon_only_widget.hide()
 
         # прозорість фону та приховування верхньої панелі вікна авторизацій
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
@@ -38,14 +40,21 @@ class MainWindow(QMainWindow):
         self.ui.maximized_btn.clicked.connect(self.on_maximized_btn_clicked)
         self.ui.normalize_btn.clicked.connect(self.on_normalize_btn_clicked)
         self.ui.normalize_btn.hide()
-
         self.ui.close_unit_btn.clicked.connect(self.initial_state)
+
+        self.ui.confirm_create_person_buttonBox.clicked.connect(self.create_new_person)
+        self.ui.confirm_edit_person_buttonBox.clicked.connect(self.edit_person)
+        self.ui.confirm_delete_person_buttonBox.clicked.connect(self.delete_person)
+
+        self.ui.confirm_create_person_buttonBox.button(QDialogButtonBox.Yes).setText("Зберегти")
+        self.ui.confirm_create_person_buttonBox.button(QDialogButtonBox.Cancel).setText("Відмінити")
 
     # роблю вікно переміщуваним, бо self.setWindowFlags(QtCore.Qt.FramelessWindowHint) забирає таку можливість
     def mousePressEvent(self, event):
         self.oldPosition = event.globalPos()
 
     def mouseMoveEvent(self, event):
+        self.ui.normalize_btn.click()
         delta = QPoint(event.globalPos() - self.oldPosition)
         self.move(self.x() + delta.x(), self.y() + delta.y())
         self.oldPosition = event.globalPos()
@@ -84,7 +93,7 @@ class MainWindow(QMainWindow):
             unit_button.setObjectName(f"build_{unit[0]}")
             unit_button.setText(f'{unit[1]}')
             unit_button.clicked.connect(self.on_clicked_unit)
-            self.buttons.append(unit_button)
+            # self.buttons.append(unit_button)
             self.ui.verticalLayout_8.addWidget(unit_button)
 
     # дія по натисканню на кнопку будинку
@@ -136,7 +145,6 @@ class MainWindow(QMainWindow):
 
     # початковий стан вікна, коли не обрано жодного будинку
     def initial_state(self):
-        self.ui.icon_only_widget.hide()
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.main_btn_2.setChecked(True)
         self.ui.main_btn_1.show()
@@ -151,6 +159,7 @@ class MainWindow(QMainWindow):
         self.ui.co_owners_btn_2.hide()
         self.ui.counters_btn_1.hide()
         self.ui.counters_btn_2.hide()
+        self.ui.create_edit_delete_stackedWidget.hide()
 
     # Робота з полем пошуку
     def on_search_btn_clicked(self):
@@ -166,6 +175,27 @@ class MainWindow(QMainWindow):
             if self.ui.search_input.hasFocus():
                 self.ui.stackedWidget.setCurrentIndex(5)
                 self.on_search_btn_clicked()
+
+    def create_new_person(self, button):
+        print(button.sender)
+        print(button.text())
+        # QPushButton.
+        if button.text() == 'Зберегти':
+            print("Співмешканця збережено")
+        elif button.text() == 'Відмінити':
+            print("Зберігання відмінено")
+
+    def edit_person(self, button):
+        if button.text() == '&Yes':
+            print("Співмешканця відредаговано")
+        elif button.text() == 'Cancel':
+            print("Редагування відмінено")
+
+    def delete_person(self, button):
+        if button.text() == '&Yes':
+            print("Співмешканця видалено")
+        elif button.text() == 'Cancel':
+            print("Видалення відмінено")
 
     # Function for changing page to user pag (відсутня, можливо і не з'виться)
     # def on_user_btn_clicked(self):
@@ -192,10 +222,10 @@ class MainWindow(QMainWindow):
     #             btn.setAutoExclusive(True)
 
     # functions for changing menu page
-    def on_main_btn_1_toggled(self, index):
+    def on_main_btn_1_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
 
-    def on_main_btn_2_toggled(self, index):
+    def on_main_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def on_results_btn_1_toggled(self):
@@ -228,6 +258,62 @@ class MainWindow(QMainWindow):
     def on_set_unit_btn_2_toggled(self):
         self.ui.stackedWidget.setCurrentIndex(6)
 
+    def on_create_new_person_button_clicked(self):
+        self.ui.create_edit_delete_stackedWidget.setCurrentIndex(0)
+
+    def on_edit_person_button_clicked(self):
+        self.ui.create_edit_delete_stackedWidget.setCurrentIndex(1)
+
+    def on_delete_person_button_clicked(self):
+        self.ui.create_edit_delete_stackedWidget.setCurrentIndex(2)
+
+
+# class PersonTable(MainWindow):
+#     def __init__(self):
+#         super().__init__()
+#         self.create_list_person()
+#         self.ui.confirm_create_person_buttonBox.clicked.connect(self.create_new_person)
+#
+#     def initUI(self):
+#         pass
+#
+#     def create_list_person(self):
+#         current_unit = operation_for_db.SQLiteDBPerson(unit_number=self.find_current_unit_id())
+#         model = PersonTableView(current_unit.select_list_person().fetchall())
+#         self.ui.person_table_view.setModel(model)
+#         self.person_table_setting()
+#
+#     def person_table_setting(self):
+#         # Отримання заголовка
+#         header_table = self.ui.person_table_view.horizontalHeader()
+#         header_table.setSectionResizeMode(QHeaderView.Stretch)
+#
+#         # Шрифт
+#         font = QtGui.QFont()
+#         font.setFamily("Century Gothic")
+#         font.setPointSize(11)
+#         font.setBold(True)
+#         header_table.setFont(font)
+#
+#     def create_new_person(self, button):
+#         print(button.text())
+#         if button.text() == '&Yes':
+#             print("Натиснуто кнопку OK")
+#         elif button.text() == 'Cancel':
+#             print("Натиснуто кнопку Cancel")
+#
+#     def edit_person(self, button):
+#         if button.text() == '&Yes':
+#             print("Натиснуто кнопку OK")
+#         elif button.text() == 'Cancel':
+#             print("Натиснуто кнопку Cancel")
+#
+#     def delete_person(self, button):
+#         if button.text() == '&Yes':
+#             print("Натиснуто кнопку OK")
+#         elif button.text() == 'Cancel':
+#             print("Натиснуто кнопку Cancel")
+
 
 class PersonTableView(QAbstractTableModel):
     def __init__(self, data):
@@ -250,4 +336,3 @@ class PersonTableView(QAbstractTableModel):
                 return ["Квартира", "Прізвище", "Ім'я", "По батькові", "Документ", "Площа", "Квитанція"][section]
             # else:
             #     return str(section)
-

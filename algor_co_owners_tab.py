@@ -1,47 +1,76 @@
 import sys
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QApplication, QWidget, QTableWidget, QHeaderView, QVBoxLayout, QMainWindow, QTableWidgetItem
+from PyQt5.QtCore import QFile, QTextStream, QPoint, Qt, QAbstractTableModel
 import operation_for_db
-import algor_main_window
+from algor_main_window import MainWindow
+from UI.main_window_ui import Ui_MainWindow
 
-class PersonTable(QWidget):
-    def __init__(self, id_unit=1):
-        super().__init__()
+
+class PersonTable(MainWindow):
+    def __init__(self):
+        super(PersonTable).__init__()
         self.initUI()
-        self.id_unit = id_unit
+        self.ui.confirm_create_person_buttonBox.clicked.connect(self.create_new_person)
 
     def initUI(self):
-        self.setWindowTitle("Формування таблиці з SQLite")
-        self.resize(800, 600)
-
-        # Створення QTableWidget
-        self.table = QTableWidget()
-        self.table.setColumnCount(3)
-        self.table.setHorizontalHeaderLabels(["Ім'я", "Вік", "Місто"])
-
-        # Заповнення таблиці даними з SQLite
-        self.create_list_person()
-
-        # Додавання QTableWidget до QVBoxLayout
-        layout = QVBoxLayout()
-        layout.addWidget(self.table)
-        self.setLayout(layout)
+        pass
 
     def create_list_person(self):
+        current_unit = operation_for_db.SQLiteDBPerson(unit_number=self.find_current_unit_id())
+        model = PersonTableView(current_unit.select_list_person().fetchall())
+        self.ui.person_table_view.setModel(model)
+        self.person_table_setting()
 
-        current_unit = operation_for_db.SQLiteDBPerson(unit_number=algor_main_window.MainWindow.find_current_unit_id(self.id_unit))
+    def person_table_setting(self):
+        # Отримання заголовка
+        header_table = self.ui.person_table_view.horizontalHeader()
+        header_table.setSectionResizeMode(QHeaderView.Stretch)
 
-        for row_data in current_unit.select_list_person().fetchall():
-            row = self.ui.person_table_view.rowCount()
-            self.ui.person_table_view.insertRow(row)
-            for column, data in enumerate(row_data):
-                self.ui.person_table_view.setItem(row, column, QTableWidgetItem(str(data)))
+        # Шрифт
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setPointSize(11)
+        font.setBold(True)
+        header_table.setFont(font)
 
-        # Встановлення розміру стовпчиків
-        self.table.resizeColumnsToContents()
+    def create_new_person(self, button):
+        if button.text() == '&Yes':
+            print("Натиснуто кнопку OK")
+        elif button.text() == 'Cancel':
+            print("Натиснуто кнопку Cancel")
+
+    def edit_person(self, button):
+        if button.text() == '&Yes':
+            print("Натиснуто кнопку OK")
+        elif button.text() == 'Cancel':
+            print("Натиснуто кнопку Cancel")
+
+    def delete_person(self, button):
+        if button.text() == '&Yes':
+            print("Натиснуто кнопку OK")
+        elif button.text() == 'Cancel':
+            print("Натиснуто кнопку Cancel")
 
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    ex = PersonTable()
-    ex.show()
-    sys.exit(app.exec_())
+class PersonTableView(QAbstractTableModel):
+    def __init__(self, data):
+        super().__init__()
+        self._data = data
+
+    def rowCount(self, parent=None):
+        return len(self._data)
+
+    def columnCount(self, parent=None):
+        return len(self._data[0]) if self._data else 7
+
+    def data(self, index, role=Qt.DisplayRole):
+        if role == Qt.DisplayRole:
+            return self._data[index.row()][index.column()]
+
+    def headerData(self, section, orientation, role=Qt.DisplayRole):
+        if role == Qt.DisplayRole:
+            if orientation == Qt.Horizontal:
+                return ["Квартира", "Прізвище", "Ім'я", "По батькові", "Документ", "Площа", "Квитанція"][section]
+            # else:
+            #     return str(section)

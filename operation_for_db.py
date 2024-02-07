@@ -154,11 +154,11 @@ class SQLiteDBPerson:
         self.execute(query)
         return self
 
-    def insert_user(self):
-        query = (f'INSERT INTO ??? '
-                 f'(???) '
+    def insert_user(self, first_name, last_name, father_name, document_id, number_of_apartment, member_of_directors, area, payment_receipts, build):
+        query = (f'INSERT INTO person '
+                 f'(first_name, last_name, father_name, document_id, number_of_apartment, member_of_directors, area, payment_receipts, build) '
                  f'VALUES '
-                 f'(???)')
+                 f'({first_name}, {last_name}, {father_name}, {document_id}, {number_of_apartment}, {member_of_directors}, {area}, {payment_receipts}, {build})')
         self.execute(query)
         self.commit()
 
