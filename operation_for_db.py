@@ -126,7 +126,7 @@ class SQLiteDBPerson:
                  f'person.first_name, '
                  f'person.last_name, '
                  f'person.father_name, '
-                 f'person.document_atrr, '
+                 f'person.document_id, '
                  f'person.area, '
                  f'person.payment_receipts '
                  f'FROM apartment '
